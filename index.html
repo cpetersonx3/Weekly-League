@@ -900,7 +900,12 @@
             </table>
 			<br>
             <h3>Matchup</h3>
-            <table class="table table-responsive">
+
+			<input class="myInput" type="text" id="myInput11" onkeyup="myFunction('myInput11', 'myTable11');" placeholder="Search away team...">
+			<input class="myInput" type="text" id="myInput12" onkeyup="myFunction2('myInput12', 'myTable11');" placeholder="Search home team...">
+			<input class="myInput" type="text" id="myInput13" onkeyup="myFunction3('myInput13', 'myTable11');" placeholder="Search any team...">
+
+            <table id="myTable11" class="table table-responsive">
                 <thead>
                     <tr>
                         <th>Game</th>
@@ -914,11 +919,243 @@
                 <tbody>
                     <tr>
                         <td>#1</td>
-                        <td><br></td>
-                        <td><br></td>
+                        <td>JKGalyean<br>POM Sep 15 Arrieta</td>
+                        <td>Lycaons31<br>POM Jun 17 Kluber</td>
+                        <td>Comerica Park</td>
                         <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#1</td>
+                        <td>Avanta<br>POM Sep 15 Arrieta</td>
+                        <td>Runners23<br>Base 17 Severino</td>
+                        <td>Marlins Park</td>
                         <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#1</td>
+                        <td>TorontoTulos<br>POM Jul 13 Kershaw</td>
+                        <td>AfroAngels<br>Star Jun 17 Kluber</td>
+                        <td>Angel Stadium of Anaheim</td>
                         <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#2</td>
+                        <td>Runners23<br>Base 17 Pineda</td>
+                        <td>JKGalyean<br>Base 17 Darvish</td>
+                        <td>Globe Life Park in Arlington</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#2</td>
+                        <td>AfroAngels<br>Star Apr 17 Keuchel</td>
+                        <td>Avanta<br>POM Jun 14 Hernandez</td>
+                        <td>Wrigley Field</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#2</td>
+                        <td>Lycaons31<br>POM Jul 15 Kershaw</td>
+                        <td>TorontoTulos<br>POM Sep 14 Kluber</td>
+                        <td>Rogers Centre</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#3</td>
+                        <td>JKGalyean<br>Base 17 deGrom</td>
+                        <td>Avanta<br>AS 16 Lester</td>
+                        <td>Wrigley Field</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#3</td>
+                        <td>Lycaons31<br>AS 16 Cueto</td>
+                        <td>AfroAngels<br>POM Aug 14 Shoemaker</td>
+                        <td>Angel Stadium of Anaheim</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#3</td>
+                        <td>Runners23<br>Base 17 Gray</td>
+                        <td>TorontoTulos<br>POM Sep 13 Cole</td>
+                        <td>Rogers Centre</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#4</td>
+                        <td>TorontoTulos<br>POM May 15 Scherzer</td>
+                        <td>JKGalyean<br>Base 17 Cashner</td>
+                        <td>Globe Life Park in Arlington</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#4</td>
+                        <td>Avanta<br>Star May 17 Strasburg</td>
+                        <td>Lycaons31<br>AS 16 Quintana</td>
+                        <td>Comerica Park</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#4</td>
+                        <td>AfroAngels<br>POM Jul 15 Heaney</td>
+                        <td>Runners23<br>Base 17 Garcia</td>
+                        <td>Marlins Park</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#5</td>
+                        <td>TorontoTulos<br>POM May 13 Corbin</td>
+                        <td>Avanta<br>AS 16 Cueto</td>
+                        <td>Wrigley Field</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#5</td>
+                        <td>Lycaons31<br>AS 14 Simon</td>
+                        <td>Runners23<br>Base 17 Tanaka</td>
+                        <td>Marlins Park</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#5</td>
+                        <td>JKGalyean<br>Base 17 Perez</td>
+                        <td>AfroAngels<br>AS 17 Scherzer</td>
+                        <td>Angel Stadium of Anaheim</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#11</td>
+                        <td>Avanta<br>POM Sep 15 Arrieta</td>
+                        <td>JKGalyean<br>POM Sep 15 Arrieta</td>
+                        <td>Globe Life Park in Arlington</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#11</td>
+                        <td>AfroAngels<br>Star Jun 17 Kluber</td>
+                        <td>Lycaons31<br>POM Jun 17 Kluber</td>
+                        <td>Comerica Park</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#11</td>
+                        <td>TorontoTulos<br>POM Jul 13 Kershaw</td>
+                        <td>Runners23<br>Base 17 Severino</td>
+                        <td>Marlins Park</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#12</td>
+                        <td>JKGalyean<br>Base 17 Darvish</td>
+                        <td>TorontoTulos<br>POM Sep 14 Kluber</td>
+                        <td>Rogers Centre</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#12</td>
+                        <td>Lycaons31<br>POM Jul 15 Kershaw</td>
+                        <td>Avanta<br>POM Jun 14 Hernandez</td>
+                        <td>Wrigley Field</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#12</td>
+                        <td>Runners23<br>Base 17 Pineda</td>
+                        <td>AfroAngels<br>Star Apr 17 Keuchel</td>
+                        <td>Angel Stadium of Anaheim</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#13</td>
+                        <td>Avanta<br>AS 16 Lester</td>
+                        <td>TorontoTulos<br>POM Sep 13 Cole</td>
+                        <td>Rogers Centre</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#13</td>
+                        <td>Runners23<br>Base 17 Gray</td>
+                        <td>Lycaons31<br>AS 16 Cueto</td>
+                        <td>Comerica Park</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#13</td>
+                        <td>AfroAngels<br>POM Aug 14 Shoemaker</td>
+                        <td>JKGalyean<br>Base 17 deGrom</td>
+                        <td>Global Life Park in Arlington</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#14</td>
+                        <td>Lycaons31<br>AS 16 Quintana</td>
+                        <td>JKGalyean<br>Base 17 Cashner</td>
+                        <td>Global Life Park in Arlington</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#14</td>
+                        <td>Runners23<br>Base 17 Garcia</td>
+                        <td>Avanta<br>Star May 17 Strasburg</td>
+                        <td>Wrigley Field</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#14</td>
+                        <td>AfroAngels<br>POM Jul 15 Heaney</td>
+                        <td>TorontoTulos<br>POM May 15 Scherzer</td>
+                        <td>Rogers Centre</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#15</td>
+                        <td>JKGalyean<br>Base 17 Perez</td>
+                        <td>Runners23<br>Base 17 Tanaka</td>
+                        <td>Marlins Park</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#15</td>
+                        <td>Avanta<br>AS 16 Cueto</td>
+                        <td>AfroAngels<br>AS 17 Scherzer</td>
+                        <td>Angel Stadium of Anaheim</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#15</td>
+                        <td>TorontoTulos<br>POM May 13 Corbin</td>
+                        <td>Lycaons31<br>AS 14 Simon</td>
+                        <td>Comerica Park</td>
+                        <td></td>
+                        <td>DH</td>
                     </tr>
                 </tbody>
             </table>
@@ -1015,7 +1252,12 @@
             </table>
 			<br>
             <h3>Matchup</h3>
-            <table class="table table-responsive">
+ 
+			<input class="myInput" type="text" id="myInput21" onkeyup="myFunction('myInput21', 'myTable21');" placeholder="Search away team...">
+			<input class="myInput" type="text" id="myInput22" onkeyup="myFunction2('myInput22', 'myTable21');" placeholder="Search home team...">
+			<input class="myInput" type="text" id="myInput23" onkeyup="myFunction3('myInput23', 'myTable21');" placeholder="Search any team...">
+
+            <table id="myTable21" class="table table-responsive">
                 <thead>
                     <tr>
                         <th>Game</th>
