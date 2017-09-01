@@ -35,8 +35,92 @@
         .jumbotron {
     background-color: lightskyblue;
         }
+		
+		
+		.myInput {
+			/*background-image: url('http://www.pacificfunds.com/content/dam/paclife/rsd/mutual_funds/images/website_elements/search-icon.png');*/
+			background-position: 10px 12px; /* Position the search icon */
+			background-repeat: no-repeat; /* Do not repeat the icon image */
+			width: 33%; /* Full-width */
+			font-size: 16px; /* Increase font-size */
+			padding: 12px 20px 12px 40px; /* Add some padding */
+			border: 1px solid #ddd; /* Add a grey border */
+			margin-bottom: 12px; /* Add some space below the input */
+		}
+
+		th, tr:hover {
+			/* Add a grey background color to the table header and on hover */
+			background-color: #f1f1f1;
+		}
+		
     </style>
 
+	<script>
+		function myFunction(myInput, myTable) {
+		  // Declare variables 
+		  var input, filter, table, tr, td, i;
+		  input = document.getElementById(myInput);
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById(myTable);
+		  tr = table.getElementsByTagName("tr");
+
+		  // Loop through all table rows, and hide those who don't match the search query
+		  for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[1];
+			if (td) {
+			  if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+				tr[i].style.display = "";
+			  } else {
+				tr[i].style.display = "none";
+			  }
+			} 
+		  }
+		}
+
+		function myFunction2(myInput, myTable) {
+		  // Declare variables 
+		  var input, filter, table, tr, td, i;
+		  input = document.getElementById(myInput);
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById(myTable);
+		  tr = table.getElementsByTagName("tr");
+
+		  // Loop through all table rows, and hide those who don't match the search query
+		  for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[2];
+			if (td) {
+			  if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+				tr[i].style.display = "";
+			  } else {
+				tr[i].style.display = "none";
+			  }
+			} 
+		  }
+		}
+
+		function myFunction3(myInput, myTable) {
+		  // Declare variables 
+		  var input, filter, table, tr, td, i;
+		  input = document.getElementById(myInput);
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById(myTable);
+		  tr = table.getElementsByTagName("tr");
+
+		  // Loop through all table rows, and hide those who don't match the search query
+		  for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[1];
+			td2 = tr[i].getElementsByTagName("td")[2];
+			if (td && td2) {
+			  if (td.innerHTML.toUpperCase().indexOf(filter) > -1 || td2.innerHTML.toUpperCase().indexOf(filter) > -1) {
+				tr[i].style.display = "";
+			  } else {
+				tr[i].style.display = "none";
+			  }
+			} 
+		  }
+		}
+
+	</script>
   
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -144,7 +228,9 @@
             <h2>Participants</h2>
             <p>These are the current participants.</p>
 
-            <table class="table table-responsive">
+			<input class="myInput" type="text" id="myInput0" onkeyup="myFunction('myInput0', 'myTable0');" placeholder="Search team...">
+
+            <table id="myTable0" class="table table-responsive">
                 <thead>
                     <tr>
                         <th>Seed</th>
@@ -228,7 +314,7 @@
                     <tr>
                         <td>#7</td>
                         <td style="font-weight: bolder; ">AfroAngels</td>
-                        <td><img class="uqi" src="http://content.sportslogos.net/logos/53/78/thumbs/2559d7603ouedg7ldhw0br4fn.gif" alt="Los Angeles Angels"></img></td>
+                        <td><img class="uqi" src="http://content.sportslogos.net/logos/53/6521/thumbs/652143892016.gif" alt="Los Angeles Angels"></img></td>
                         <td>88</td>
                         <td>Star Jun 17 Kluber</td>
                         <td>Star Apr 17 Keuchel</td>
@@ -462,7 +548,12 @@
             </table>
 			<br>
             <h3>Matchup</h3>
-            <table class="table table-responsive">
+			
+			<input class="myInput" type="text" id="myInput1" onkeyup="myFunction('myInput1', 'myTable1');" placeholder="Search away team...">
+			<input class="myInput" type="text" id="myInput2" onkeyup="myFunction2('myInput2', 'myTable1');" placeholder="Search home team...">
+			<input class="myInput" type="text" id="myInput3" onkeyup="myFunction3('myInput3', 'myTable1');" placeholder="Search any team...">
+
+            <table id="myTable1" class="table table-responsive">
                 <thead>
                     <tr>
                         <th>Game</th>
@@ -476,11 +567,243 @@
                 <tbody>
                     <tr>
                         <td>#1</td>
-                        <td><br></td>
-                        <td><br></td>
+                        <td>SunDevilStang<br>AS 13 Scherzer</td>
+                        <td>Wildcat19<br>POM Jul 13 Kershaw</td>
+                        <td>PNC Park</td>
                         <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#1</td>
+                        <td>Dubleezy71<br>Star Jun 17 Nelson</td>
+                        <td>Dcjuhurd<br>AS 15 Greinke</td>
+                        <td>Yankee Stadium</td>
                         <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#1</td>
+                        <td>leo7630<br>Base 17 Walker</td>
+                        <td>Mrooney7<br>AS 13 Scherzer</td>
+                        <td>Citi Field</td>
                         <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#2</td>
+                        <td>Dcjuhurd<br>Star May 17 Berrios</td>
+                        <td>SunDevilStang<br>AS 15 Price</td>
+                        <td>Comerica Park</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#2</td>
+                        <td>Mrooney7<br>AS 16 Colon</td>
+                        <td>Dubleezy71<br>Star Jun 17 Kluber</td>
+                        <td>Oakland-Alameda County Coliseum</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#2</td>
+                        <td>Wildcat19<br>POM Sep 14 Kluber</td>
+                        <td>leo7630<br>POM May 13 Corbin</td>
+                        <td>Chase Field</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#3</td>
+                        <td>SunDevilStang<br>POM Apr 16 Zimmermann</td>
+                        <td>Dubleezy71<br>POM Jul 14 Gray</td>
+                        <td>Oakland-Alameda County Coliseum</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#3</td>
+                        <td>Wildcat19<br>POM Sep 13 Cole</td>
+                        <td>Mrooney7<br>AS 16 Pomeranz</td>
+                        <td>Citi Field</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#3</td>
+                        <td>Dcjuhurd<br>POM Jul 14 Gray</td>
+                        <td>leo7630<br>SB 16 Ray</td>
+                        <td>Chase Field</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#4</td>
+                        <td>leo7630<br>Base 17 Godley</td>
+                        <td>SunDevilStang<br>POM Jul 16 Verlander</td>
+                        <td>Comerica Park</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#4</td>
+                        <td>Dubleezy71<br>AS 15 Archer</td>
+                        <td>Wildcat19<br>POM May 15 Scherzer</td>
+                        <td>PNC Park</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#4</td>
+                        <td>Mrooney7<br>Star Apr 17 Stroman</td>
+                        <td>Dcjuhurd<br>POM Sep 13 Cole</td>
+                        <td>Yankee Stadium</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#5</td>
+                        <td>leo7630<br>SB 16 Greinke</td>
+                        <td>Dubleezy71<br>AS 13 Scherzer</td>
+                        <td>Oakland-Alameda County Coliseum</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#5</td>
+                        <td>Wildcat19<br>POM May 13 Corbin</td>
+                        <td>Dcjuhurd<br>POM Apr 13 Harvey</td>
+                        <td>Yankee Stadium</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#5</td>
+                        <td>SunDevilStang<br>POM Sep 16 Porcello</td>
+                        <td>Mrooney7<br>POM Apr 13 Harvey</td>
+                        <td>Citi Field</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#11</td>
+                        <td>Dubleezy71<br>Star Jun 17 Nelson</td>
+                        <td>SunDevilStang<br>AS 13 Scherzer</td>
+                        <td>Comerica Park</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#11</td>
+                        <td>Mrooney7<br>AS 13 Scherzer</td>
+                        <td>Wildcat19<br>POM Jul 13 Kershaw</td>
+                        <td>PNC Park</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#11</td>
+                        <td>leo7630<br>Base 17 Walker</td>
+                        <td>Dcjuhurd<br>AS 15 Greinke</td>
+                        <td>Yankee Stadium</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#12</td>
+                        <td>SunDevilStang<br>AS 15 Price</td>
+                        <td>leo7630<br>POM May 13 Corbin</td>
+                        <td>Chase Field</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#12</td>
+                        <td>Wildcat19<br>POM Sep 14 Kluber</td>
+                        <td>Dubleezy71<br>Star Jun 17 Kluber</td>
+                        <td>Oakland-Alameda County Coliseum</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#12</td>
+                        <td>Dcjuhurd<br>Star May 17 Berrios</td>
+                        <td>Mrooney7<br>AS 16 Colon</td>
+                        <td>Citi Field</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#13</td>
+                        <td>Dubleezy71<br>POM Jul 14 Gray</td>
+                        <td>leo7630<br>SB 16 Ray</td>
+                        <td>Chase Field</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#13</td>
+                        <td>Dcjuhurd<br>POM Jul 14 Gray</td>
+                        <td>Wildcat19<br>POM Sep 13 Cole</td>
+                        <td>PNC Park</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#13</td>
+                        <td>Mrooney7<br>AS 16 Pomeranz</td>
+                        <td>SunDevilStang<br>POM Apr 16 Zimmermann</td>
+                        <td>Comerica Park</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#14</td>
+                        <td>Wildcat19<br>POM May 15 Scherzer</td>
+                        <td>SunDevilStang<br>POM Jul 16 Verlander</td>
+                        <td>Comerica Park</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#14</td>
+                        <td>Dcjuhurd<br>POM Sep 13 Cole</td>
+                        <td>Dubleezy71<br>AS 15 Archer</td>
+                        <td>Oakland-Alameda County Coliseum</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#14</td>
+                        <td>Mrooney7<br>Star Apr 17 Stroman</td>
+                        <td>leo7630<br>Base 17 Godley</td>
+                        <td>Chase Field</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#15</td>
+                        <td>SunDevilStang<br>POM Sep 16 Porcello</td>
+                        <td>Dcjuhurd<br>POM Apr 13 Harvey</td>
+                        <td>Yankee Stadium</td>
+                        <td></td>
+                        <td>DH</td>
+                    </tr>
+                    <tr>
+                        <td>#15</td>
+                        <td>Dubleezy71<br>AS 13 Scherzer</td>
+                        <td>Mrooney7<br>POM Apr 13 Harvey</td>
+                        <td>Citi Field</td>
+                        <td></td>
+                        <td>No DH</td>
+                    </tr>
+                    <tr>
+                        <td>#15</td>
+                        <td>leo7630<br>SB 16 Greinke</td>
+                        <td>Wildcat19<br>POM May 13 Corbin</td>
+                        <td>PNC Park</td>
+                        <td></td>
+                        <td>No DH</td>
                     </tr>
                 </tbody>
             </table>
