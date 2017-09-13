@@ -52,7 +52,55 @@
 			/* Add a grey background color to the table header and on hover */
 			background-color: #f1f1f1;
 		}
-		
+
+	/*
+	 *  Flex Layout Specifics
+	*/
+	main{
+	  display:flex;
+	  flex-direction:row;
+	}
+	.round{
+	  display:flex;
+	  flex-direction:column;
+	  justify-content:center;
+	  width:200px;
+	  list-style:none;
+	  padding:0;
+	}
+	  .round .spacer{ flex-grow:1; }
+	  .round .spacer:first-child,
+	  .round .spacer:last-child{ flex-grow:.5; }
+
+	  .round .game-spacer{
+		flex-grow:1;
+	  }
+
+	li.game{
+	  padding-left:20px;
+	}
+
+	  li.game.winner{
+		font-weight:bold;
+	  }
+	  li.game span{
+		float:right;
+		margin-right:5px;
+	  }
+
+	  li.game-top{ border-bottom:1px solid #aaa; }
+
+	  li.game-spacer{ 
+		border-right:1px solid #aaa;
+		min-height:40px;
+	  }
+
+	  li.game-bottom{ 
+		border-top:1px solid #aaa;
+	  }
+	  
+	  li.game-none { border: none;}
+
     </style>
 
 	<script>
@@ -176,16 +224,73 @@
         <p>We are a bunch of baseball freaks. And we play Perfect Inning Live.</p>
         <p>Everyone that plays PI Live and has a KIK account is able to join our league.</p>
 	      <br>
-	      <p>THE SEPTEMBER 2017 LEAGUE WILL START ON SEPTEMBER 2ND!</p>
+	      <p>THE SEPTEMBER LEAGUE STARTED ON SEPTEMBER 2ND!</p>
+	      <br>
+	      <p>WE NOW OPEN UP INSCRIPTIONS FOR THE OCTOBER LEAGUE!</p>
 		<br>
         <p>We are not affiliated to Gamevil or MLB or whatsoever.</p>
-        <p>If you do not see any changes on this website than please eliminate cookies and stuff from your browser.</p>
+        <p>If you do not see any changes on this website then please eliminate cookies and stuff from your browser.</p>
         <p><a class="btn btn-primary btn-lg" href="http://m.gamevilusa.com/forums/showthread.php?423154-Community-League-Event&p=1168999" role="button">I wanna join!</a></p>
       </div>
     </div>
-
+	
     <div class="container">
 		<section id="participants">
+            <h2>Play-off bracket:</h2>
+				<main id="tournament">
+					<ul class="round round-1">
+						<li class="spacer">&nbsp;</li>
+						
+						<li class="game game-top">WC2 - AfroAngels<span>0</span></li>
+						<li class="game game-spacer">&nbsp;</li>
+						<li class="game game-bottom ">WC1 - Mrooney7<span>0</span></li>
+
+						<li class="spacer">&nbsp;</li>
+						<li class="game game-none"></li>
+						<li class="game game-none">&nbsp;</li>
+						<li class="game game-none"></li>
+
+						<li class="spacer">&nbsp;</li>
+						<li class="game game-none" style="border-bottom: none;"></li>
+						<li class="game game-none">&nbsp;</li>
+						<li class="game game-none"></li>
+
+						<li class="spacer">&nbsp;</li>
+						<li class="game game-none" style="border-bottom: none;"></li>
+						<li class="game game-none">&nbsp;</li>
+						<li class="game game-none"></li>
+
+						<li class="spacer">&nbsp;</li>
+					</ul>
+					<ul class="round round-2">
+						<li class="spacer">&nbsp;</li>
+						<li class="spacer">&nbsp;</li>
+						
+						<li class="game game-top">WC Winner<span>0</span></li>
+						<li class="game game-spacer">&nbsp;</li>
+						<li class="game game-bottom ">Camrahammers<span>0</span></li>
+
+						<li class="spacer">&nbsp;</li>
+						
+						<li class="game game-top">Dubleezy71<span>0</span></li>
+						<li class="game game-spacer">&nbsp;</li>
+						<li class="game game-bottom ">Avanta<span>0</span></li>
+
+						<li class="spacer">&nbsp;</li>
+					</ul>
+					<ul class="round round-3">
+						<li class="spacer">&nbsp;</li>
+						
+						<li class="game game-top"><span></span></li>
+						<li class="game game-spacer">&nbsp;</li>
+						<li class="game game-bottom "><span></span></li>
+
+						<li class="spacer">&nbsp;</li>
+					</ul>
+				</main>
+			
+			<br>
+
             <h2>Total Ranking:</h2>
             <p>The division winners continue to the play-offs, the best other two teams play a single wild card play-off.</p>
 
@@ -206,16 +311,14 @@
                     </tr>
                 </thead>
                 <tbody>
-
-				
 <tr><td>PO</td><td>Dubleezy71</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/69/thumbs/6xk2lpc36146pbg2kydf13e50.gif' alt='Oakland A's'></img></td><td>5</td><td>5</td><td>0</td><td>0</td><td>27</td><td>1.000</td></tr>
 <tr><td>PO *</td><td>Avanta</td><td><img class='peq' src='http://content.sportslogos.net/logos/54/54/thumbs/q9gvs07u72gc9xr3395u6jh68.gif' alt='Chicago Cubs'></img></td><td>10</td><td>9</td><td>1</td><td>0</td><td>55</td><td>0.900</td></tr>
-<tr><td>PO *</td><td>Camrahammers</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/69/thumbs/6xk2lpc36146pbg2kydf13e50.gif' alt='Oakland A's'></img></td><td>9</td><td>7</td><td>0</td><td>2</td><td>39</td><td>0.778</td></tr>
+<tr><td>PO *</td><td>Camrahammers</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/69/thumbs/6xk2lpc36146pbg2kydf13e50.gif' alt='Oakland A's'></img></td><td>10</td><td>8</td><td>0</td><td>2</td><td>40</td><td>0.800</td></tr>
 <tr><td>WC</td><td>Mrooney7</td><td><img class='peq' src='http://content.sportslogos.net/logos/54/67/thumbs/m01gfgeorgvbfw15fy04alujm.gif' alt='New York Mets'></img></td><td>3</td><td>3</td><td>0</td><td>0</td><td>14</td><td>1.000</td></tr>
 <tr><td>WC</td><td>AfroAngels</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/6521/thumbs/652143892016.gif' alt='Los Angeles Angels'></img></td><td>10</td><td>8</td><td>1</td><td>1</td><td>52</td><td>0.800</td></tr>
 <tr><td></td><td>SunDevilStang</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/59/thumbs/5989642016.gif' alt='Detroit Tigers'></img></td><td>4</td><td>3</td><td>1</td><td>0</td><td>7</td><td>0.750</td></tr>
 <tr><td></td><td>Harambe</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/59/thumbs/5989642016.gif' alt='Detroit Tigers'></img></td><td>8</td><td>5</td><td>3</td><td>0</td><td>21</td><td>0.625</td></tr>
-<tr><td></td><td>Jtginz</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/53/thumbs/c0whfsa9j0vbs079opk2s05lx.gif' alt='Boston Red Sox'></img></td><td>7</td><td>4</td><td>2</td><td>1</td><td>14</td><td>0.571</td></tr>
+<tr><td></td><td>Jtginz</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/53/thumbs/c0whfsa9j0vbs079opk2s05lx.gif' alt='Boston Red Sox'></img></td><td>8</td><td>4</td><td>3</td><td>1</td><td>14</td><td>0.500</td></tr>
 <tr><td></td><td>JKGalyean</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/77/thumbs/ajfeh4oqeealq37er15r3673h.gif' alt='Texas Rangers'></img></td><td>10</td><td>5</td><td>5</td><td>0</td><td>16</td><td>0.500</td></tr>
 <tr><td></td><td>RoyalsRule</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/62/thumbs/fmrl2b6xf5hruiike42gn62yu.gif' alt='Kansas City Royals'></img></td><td>10</td><td>3</td><td>4</td><td>3</td><td>12</td><td>0.300</td></tr>
 <tr><td></td><td>Runners23</td><td><img class='peq' src='http://content.sportslogos.net/logos/54/3637/thumbs/363717202017.gif' alt='Miami Marlins'></img></td><td>10</td><td>3</td><td>5</td><td>2</td><td>15</td><td>0.300</td></tr>
@@ -425,9 +528,9 @@
                     </tr>
                 </thead>
                 <tbody>
-<tr><td>Camrahammers</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/69/thumbs/6xk2lpc36146pbg2kydf13e50.gif' alt='Oakland A's'></img></td><td>9</td><td>7</td><td>0</td><td>2</td><td>39</td><td>0.778</td></tr>
+<tr><td>Camrahammers</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/69/thumbs/6xk2lpc36146pbg2kydf13e50.gif' alt='Oakland A's'></img></td><td>10</td><td>8</td><td>0</td><td>2</td><td>40</td><td>0.800</td></tr>
 <tr><td>Harambe</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/59/thumbs/5989642016.gif' alt='Detroit Tigers'></img></td><td>8</td><td>5</td><td>3</td><td>0</td><td>21</td><td>0.625</td></tr>
-<tr><td>Jtginz</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/53/thumbs/c0whfsa9j0vbs079opk2s05lx.gif' alt='Boston Red Sox'></img></td><td>7</td><td>4</td><td>2</td><td>1</td><td>14</td><td>0.571</td></tr>
+<tr><td>Jtginz</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/53/thumbs/c0whfsa9j0vbs079opk2s05lx.gif' alt='Boston Red Sox'></img></td><td>8</td><td>4</td><td>3</td><td>1</td><td>14</td><td>0.500</td></tr>
 <tr><td>RoyalsRule</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/62/thumbs/fmrl2b6xf5hruiike42gn62yu.gif' alt='Kansas City Royals'></img></td><td>10</td><td>3</td><td>4</td><td>3</td><td>12</td><td>0.300</td></tr>
 <tr><td>jaremshewell</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/78/thumbs/2559d7603ouedg7ldhw0br4fn.gif' alt='Toronto Blue Jays'></img></td><td>8</td><td>0</td><td>7</td><td>1</td><td>2</td><td>0.000</td></tr>
 <tr><td>ZZZZZZZZZZZZZZZZ</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/68/thumbs/1256.gif' alt='New York Yankees'></img></td><td>4</td><td>0</td><td>3</td><td>1</td><td>0</td><td>0.000</td></tr>
@@ -482,7 +585,7 @@
 <tr><td>#3</td><td>jaremshewell<br>Star Apr 17 Stroman</td><td>Jtginz<br>AS 15 Price</td><td>0-2</tr>
 <tr><td>#3</td><td>Harambe<br>AS 16 Quintana</td><td>Camrahammers<br>POM Jul 14 Gray</td><td>0-2</tr>
 
-<tr><td>#4</td><td>Jtginz<br>Star May 17 McCullers</td><td>Camrahammers<br>SB 14 Lester</td><td></tr>
+<tr><td>#4</td><td>Jtginz<br>Star May 17 McCullers</td><td>Camrahammers<br>SB 14 Lester</td><td>0-1</tr>
 <tr><td>#4</td><td>jaremshewell<br>AS 13 Hernandez</td><td>ZZZZZZZZZZZZZZZZ<br>AS 14 Hernandez</td><td></tr>
 <tr><td>#4</td><td>Harambe<br>POM Apr 16 Zimmermann</td><td>RoyalsRule<br>SB 14 Shields</td><td>6-0</tr>
 
