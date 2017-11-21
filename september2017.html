@@ -1,0 +1,709 @@
+
+ <!DOCTYPE html>
+<!-- Template by Quackit.com -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico">
+
+    <title>KIK Perfect Inning Live League</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
+      
+    <!-- Some extra styles (remove if not needed) -->
+    <style>
+        section {
+            padding: 70px 0;
+            border-bottom: 1px dotted #ccc;
+        }
+
+        /* So that we can see the grid */
+        .grid-example  div[class^="col"] {
+            border: 1px solid white;
+            background: lightblue;
+            text-align: center;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            }
+        /* Overide Jumbotron's color */
+        .jumbotron {
+    background-color: lightskyblue;
+        }
+		
+		
+		.myInput {
+			/*background-image: url('http://www.pacificfunds.com/content/dam/paclife/rsd/mutual_funds/images/website_elements/search-icon.png');*/
+			background-position: 10px 12px; /* Position the search icon */
+			background-repeat: no-repeat; /* Do not repeat the icon image */
+			width: 33%; /* Full-width */
+			font-size: 16px; /* Increase font-size */
+			padding: 12px 20px 12px 40px; /* Add some padding */
+			border: 1px solid #ddd; /* Add a grey border */
+			margin-bottom: 12px; /* Add some space below the input */
+		}
+
+		th, tr:hover {
+			/* Add a grey background color to the table header and on hover */
+			background-color: #f1f1f1;
+		}
+
+	/*
+	 *  Flex Layout Specifics
+	*/
+	main{
+	  display:flex;
+	  flex-direction:row;
+	}
+	.round{
+	  display:flex;
+	  flex-direction:column;
+	  justify-content:center;
+	  width:200px;
+	  list-style:none;
+	  padding:0;
+	}
+	  .round .spacer{ flex-grow:1; }
+	  .round .spacer:first-child,
+	  .round .spacer:last-child{ flex-grow:.5; }
+
+	  .round .game-spacer{
+		flex-grow:1;
+	  }
+
+	li.game{
+	  padding-left:20px;
+	}
+
+	  li.game.winner{
+		font-weight:bold;
+	  }
+	  li.game span{
+		float:right;
+		margin-right:5px;
+	  }
+
+	  li.game-top{ border-bottom:1px solid #aaa; }
+
+	  li.game-spacer{ 
+		border-right:1px solid #aaa;
+		min-height:40px;
+	  }
+
+	  li.game-bottom{ 
+		border-top:1px solid #aaa;
+	  }
+	  
+	  li.game-none { border: none;}
+
+    </style>
+
+	<script>
+		function myFunction(myInput, myTable) {
+		  // Declare variables 
+		  var input, filter, table, tr, td, i;
+		  input = document.getElementById(myInput);
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById(myTable);
+		  tr = table.getElementsByTagName("tr");
+
+		  // Loop through all table rows, and hide those who don't match the search query
+		  for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[1];
+			if (td) {
+			  if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+				tr[i].style.display = "";
+			  } else {
+				tr[i].style.display = "none";
+			  }
+			} 
+		  }
+		}
+
+		function myFunction2(myInput, myTable) {
+		  // Declare variables 
+		  var input, filter, table, tr, td, i;
+		  input = document.getElementById(myInput);
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById(myTable);
+		  tr = table.getElementsByTagName("tr");
+
+		  // Loop through all table rows, and hide those who don't match the search query
+		  for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[2];
+			if (td) {
+			  if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+				tr[i].style.display = "";
+			  } else {
+				tr[i].style.display = "none";
+			  }
+			} 
+		  }
+		}
+
+		function myFunction3(myInput, myTable) {
+		  // Declare variables 
+		  var input, filter, table, tr, td, i;
+		  input = document.getElementById(myInput);
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById(myTable);
+		  tr = table.getElementsByTagName("tr");
+
+		  // Loop through all table rows, and hide those who don't match the search query
+		  for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[1];
+			td2 = tr[i].getElementsByTagName("td")[2];
+			if (td && td2) {
+			  if (td.innerHTML.toUpperCase().indexOf(filter) > -1 || td2.innerHTML.toUpperCase().indexOf(filter) > -1) {
+				tr[i].style.display = "";
+			  } else {
+				tr[i].style.display = "none";
+			  }
+			} 
+		  }
+		}
+
+	</script>
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-269964-1', 'quackit.com');
+  ga('send', 'pageview');
+
+</script>
+</head>
+
+  <body data-spy="scroll" data-target="#navbar-example">
+
+    <nav id="topNav" class="navbar navbar-full navbar-static-top navbar-dark bg-inverse">
+        <div class="container">
+            <button class="navbar-toggler hidden-md-up pull-right" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+                &#9776;
+            </button>
+            <!--a class="navbar-brand" href="#">Logo</a-->
+            <div class="collapse navbar-toggleable-sm" id="collapsingNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#rules">Rules</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#participants">Participants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#L1">League 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#L2">League 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#L3">League 3</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Hall of fame</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://eggsandbutter.github.io/august2017.html">August 2017 League</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid" style="padding: 0;">
+      <div class="container">
+        <h1 class="display-3">Join our community league!</h1>
+		<p>To join us, KIK us: vakdd</p>
+        <p>We are not affiliated to Gamevil or MLB or whatsoever.</p>
+        <p>If you do not see any changes on this website then please eliminate cookies and stuff from your browser.</p>
+        <p><a class="btn btn-primary btn-lg" href="http://m.gamevilusa.com/forums/showthread.php?423154-Community-League-Event&p=1168999" role="button">I wanna join!</a></p>
+      </div>
+    </div>
+	
+    <div class="container">
+		<section id="participants">
+            <h2>Play-off bracket:</h2>
+				<main id="tournament">
+					<ul class="round round-1">
+						<li class="spacer">&nbsp;</li>
+						
+						<li class="game game-top">WC1 - Mrooney7<span>0</span></li>
+						<li class="game game-spacer">&nbsp;</li>
+						<li class="game game-bottom ">WC2 - AfroAngels<span>0</span></li>
+
+						<li class="spacer">&nbsp;</li>
+						<li class="game game-none"></li>
+						<li class="game game-none">&nbsp;</li>
+						<li class="game game-none"></li>
+
+						<li class="spacer">&nbsp;</li>
+						<li class="game game-none" style="border-bottom: none;"></li>
+						<li class="game game-none">&nbsp;</li>
+						<li class="game game-none"></li>
+
+						<li class="spacer">&nbsp;</li>
+						<li class="game game-none" style="border-bottom: none;"></li>
+						<li class="game game-none">&nbsp;</li>
+						<li class="game game-none"></li>
+
+						<li class="spacer">&nbsp;</li>
+					</ul>
+					<ul class="round round-2">
+						<li class="spacer">&nbsp;</li>
+						<li class="spacer">&nbsp;</li>
+						
+						<li class="game game-top">WC Winner<span>0</span></li>
+						<li class="game game-spacer">&nbsp;</li>
+						<li class="game game-bottom ">Camrahammers<span>0</span></li>
+
+						<li class="spacer">&nbsp;</li>
+						
+						<li class="game game-top">Dubleezy71<span>0</span></li>
+						<li class="game game-spacer">&nbsp;</li>
+						<li class="game game-bottom ">Avanta<span>0</span></li>
+
+						<li class="spacer">&nbsp;</li>
+					</ul>
+					<ul class="round round-3">
+						<li class="spacer">&nbsp;</li>
+						
+						<li class="game game-top"><span></span></li>
+						<li class="game game-spacer">&nbsp;</li>
+						<li class="game game-bottom "><span></span></li>
+
+						<li class="spacer">&nbsp;</li>
+					</ul>
+				</main>
+
+			<br>
+			
+            <h3>Playoff Matchup (best of three)</h3>
+			
+			<input class="myInput" type="text" id="myInput1" onkeyup="myFunction('myInput1', 'myTable1');" placeholder="Search away team...">
+			<input class="myInput" type="text" id="myInput2" onkeyup="myFunction2('myInput2', 'myTable1');" placeholder="Search home team...">
+			<input class="myInput" type="text" id="myInput3" onkeyup="myFunction3('myInput3', 'myTable1');" placeholder="Search any team...">
+
+            <table id="myTable1" class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>Game</th>
+                        <th>Away Team</th>
+                        <th></th>
+                        <th></th>
+                        <th>Home Team</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+<tr><td>WC</td><td>Mrooney7<br>AS 13 Scherzer</td><td><img class='peq' src='http://content.sportslogos.net/logos/54/67/thumbs/m01gfgeorgvbfw15fy04alujm.gif' alt='New York Mets'></img></td><td><img class='peq' src='http://content.sportslogos.net/logos/53/6521/thumbs/652143892016.gif' alt='Los Angeles Angels'></img></td><td>AfroAngels<br>POM Aug 14 Shoemaker</td><td>0-2</td></tr>
+
+<tr><td>#1</td><td>AfroAngels<br>Star Jun 17 Kluber</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/6521/thumbs/652143892016.gif' alt='Los Angeles Angels'></img></td><td><img class='peq' src='http://content.sportslogos.net/logos/53/69/thumbs/6xk2lpc36146pbg2kydf13e50.gif' alt='Oakland A's'></img></td><td>Camrahammers<br>POM Jul 14 Gray</td><td></td></tr>
+<tr><td>#2</td><td>Camrahammers<br>SB 14 Samardzija</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/69/thumbs/6xk2lpc36146pbg2kydf13e50.gif' alt='Oakland A's'></img></td><td><img class='peq' src='http://content.sportslogos.net/logos/53/6521/thumbs/652143892016.gif' alt='Los Angeles Angels'></img></td><td>AfroAngels<br>Star Apr 17 Keuchel</td><td></td></tr>
+<tr><td>#3</td><td>AfroAngels<br>POM Aug 14 Shoemaker</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/6521/thumbs/652143892016.gif' alt='Los Angeles Angels'></img></td><td><img class='peq' src='http://content.sportslogos.net/logos/53/69/thumbs/6xk2lpc36146pbg2kydf13e50.gif' alt='Oakland A's'></img></td><td>Camrahammers<br>Star Apr 17 Triggs</td><td></td></tr>
+<tr><td>#4</td><td>Camrahammers<br>AS 14 Kazmir</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/69/thumbs/6xk2lpc36146pbg2kydf13e50.gif' alt='Oakland A's'></img></td><td><img class='peq' src='http://content.sportslogos.net/logos/53/6521/thumbs/652143892016.gif' alt='Los Angeles Angels'></img></td><td>AfroAngels<br>POM Jul 15 Heaney</td><td></td></tr>
+<tr><td>#5</td><td>AfroAngels<br>AS 17 Scherzer</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/6521/thumbs/652143892016.gif' alt='Los Angeles Angels'></img></td><td><img class='peq' src='http://content.sportslogos.net/logos/53/69/thumbs/6xk2lpc36146pbg2kydf13e50.gif' alt='Oakland A's'></img></td><td>Camrahammers<br>SB 14 Lester</td><td></td></tr>
+
+<tr><td>#1</td><td>Dubleezy71<br>Star Jun 17 Nelson</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/69/thumbs/6xk2lpc36146pbg2kydf13e50.gif' alt='Oakland A's'></img></td><td><img class='peq' src='http://content.sportslogos.net/logos/54/54/thumbs/q9gvs07u72gc9xr3395u6jh68.gif' alt='Chicago Cubs'></td><td>Avanta<br>POM Sep 15 Arrieta</td><td></td></tr>
+<tr><td>#2</td><td>Avanta<br>POM Jun 14 Hernandez</td><td><img class='peq' src='http://content.sportslogos.net/logos/54/54/thumbs/q9gvs07u72gc9xr3395u6jh68.gif' alt='Chicago Cubs'></td><td><img class='peq' src='http://content.sportslogos.net/logos/53/69/thumbs/6xk2lpc36146pbg2kydf13e50.gif' alt='Oakland A's'></img></td><td>Dubleezy71<br>Star Jun 17 Kluber</td><td></td></tr>
+<tr><td>#3</td><td>Dubleezy71<br>POM Jul 14 Gray</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/69/thumbs/6xk2lpc36146pbg2kydf13e50.gif' alt='Oakland A's'></img></td><td><img class='peq' src='http://content.sportslogos.net/logos/54/54/thumbs/q9gvs07u72gc9xr3395u6jh68.gif' alt='Chicago Cubs'></td><td>Avanta<br>AS 16 Lester</td><td></td></tr>
+<tr><td>#4</td><td>Avanta<br>Star May 17 Strasburg</td><td><img class='peq' src='http://content.sportslogos.net/logos/54/54/thumbs/q9gvs07u72gc9xr3395u6jh68.gif' alt='Chicago Cubs'></td><td><img class='peq' src='http://content.sportslogos.net/logos/53/69/thumbs/6xk2lpc36146pbg2kydf13e50.gif' alt='Oakland A's'></img></td><td>Dubleezy71<br>AS 15 Archer</td><td></td></tr>
+<tr><td>#5</td><td>Dubleezy71<br>Star Apr 17 Triggs</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/69/thumbs/6xk2lpc36146pbg2kydf13e50.gif' alt='Oakland A's'></img></td><td><img class='peq' src='http://content.sportslogos.net/logos/54/54/thumbs/q9gvs07u72gc9xr3395u6jh68.gif' alt='Chicago Cubs'></td><td>Avanta<br>AS 16 Cueto</td><td></td></tr>
+                </tbody>
+            </table>
+			<br>
+
+            <h2>Total Ranking:</h2>
+            <p>The division winners continue to the play-offs, the best other two teams play a single wild card play-off.</p>
+
+			<input class="myInput" type="text" id="myInput0" onkeyup="myFunction('myInput0', 'myTable0');" placeholder="Search team...">
+
+            <table id="myTable0" class="table table-responsive">
+                <thead>
+                    <tr>
+						<th>Rank</th>
+                        <th>IGN</th>
+                        <th>Team</th>
+                        <th>Games</th>
+                        <th>Win</th>
+                        <th>Loss</th>
+                        <th>Tie</th>
+                        <th>Runs</th>
+                        <th>%</th>
+                    </tr>
+                </thead>
+                <tbody>
+<tr><td>PO *</td><td>Avanta</td><td><img class='peq' src='http://content.sportslogos.net/logos/54/54/thumbs/q9gvs07u72gc9xr3395u6jh68.gif' alt='Chicago Cubs'></img></td><td>10</td><td>9</td><td>1</td><td>0</td><td>55</td><td>0.900</td></tr>
+<tr><td>PO *</td><td>Dubleezy71</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/69/thumbs/6xk2lpc36146pbg2kydf13e50.gif' alt='Oakland A's'></img></td><td>9</td><td>8</td><td>1</td><td>0</td><td>43</td><td>0.889</td></tr>
+<tr><td>PO *</td><td>Camrahammers</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/69/thumbs/6xk2lpc36146pbg2kydf13e50.gif' alt='Oakland A's'></img></td><td>10</td><td>8</td><td>0</td><td>2</td><td>40</td><td>0.800</td></tr>
+<tr><td>WC *</td><td>AfroAngels</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/6521/thumbs/652143892016.gif' alt='Los Angeles Angels'></img></td><td>10</td><td>8</td><td>1</td><td>1</td><td>52</td><td>0.800</td></tr>
+<tr><td>WC *</td><td>Mrooney7</td><td><img class='peq' src='http://content.sportslogos.net/logos/54/67/thumbs/m01gfgeorgvbfw15fy04alujm.gif' alt='New York Mets'></img></td><td>9</td><td>6</td><td>2</td><td>1</td><td>29</td><td>0.667</td></tr>
+<tr><td></td><td>Harambe</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/59/thumbs/5989642016.gif' alt='Detroit Tigers'></img></td><td>8</td><td>5</td><td>3</td><td>0</td><td>21</td><td>0.625</td></tr>
+<tr><td></td><td>Ruurd</td><td><img class='peq' src='http://content.sportslogos.net/logos/54/71/thumbs/gnnnrbxcmjhdgeu6mavqk3945.gif' alt='Arizona Diamondbacks'></img></td><td>7</td><td>4</td><td>3</td><td>0</td><td>13</td><td>0.571</td></tr>
+<tr><td></td><td>JKGalyean</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/77/thumbs/ajfeh4oqeealq37er15r3673h.gif' alt='Texas Rangers'></img></td><td>10</td><td>5</td><td>5</td><td>0</td><td>16</td><td>0.500</td></tr>
+<tr><td></td><td>Jtginz</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/53/thumbs/c0whfsa9j0vbs079opk2s05lx.gif' alt='Boston Red Sox'></img></td><td>8</td><td>4</td><td>3</td><td>1</td><td>14</td><td>0.500</td></tr>
+<tr><td></td><td>SunDevilStang</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/59/thumbs/5989642016.gif' alt='Detroit Tigers'></img></td><td>7</td><td>3</td><td>3</td><td>1</td><td>13</td><td>0.429</td></tr>
+<tr><td></td><td>RoyalsRule</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/62/thumbs/fmrl2b6xf5hruiike42gn62yu.gif' alt='Kansas City Royals'></img></td><td>10</td><td>3</td><td>4</td><td>3</td><td>12</td><td>0.300</td></tr>
+<tr><td></td><td>Runners23</td><td><img class='peq' src='http://content.sportslogos.net/logos/54/3637/thumbs/363717202017.gif' alt='Miami Marlins'></img></td><td>10</td><td>3</td><td>5</td><td>2</td><td>15</td><td>0.300</td></tr>
+<tr><td></td><td>leo7630</td><td><img class='peq' src='http://content.sportslogos.net/logos/54/50/thumbs/gnnnrbxcmjhdgeu6mavqk3945.gif' alt='Arizona Diamondbacks'></img></td><td>10</td><td>2</td><td>8</td><td>0</td><td>5</td><td>0.200</td></tr>
+<tr><td></td><td>TorontoTulos</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/78/thumbs/2559d7603ouedg7ldhw0br4fn.gif' alt='Toronto Blue Jays'></img></td><td>10</td><td>1</td><td>7</td><td>2</td><td>20</td><td>0.100</td></tr>
+<tr><td></td><td>Lycaons31</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/59/thumbs/5989642016.gif' alt='Detroit Tigers'></img></td><td>10</td><td>1</td><td>8</td><td>1</td><td>6</td><td>0.100</td></tr>
+<tr><td></td><td>jaremshewell</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/78/thumbs/2559d7603ouedg7ldhw0br4fn.gif' alt='Toronto Blue Jays'></img></td><td>8</td><td>0</td><td>7</td><td>1</td><td>2</td><td>0.000</td></tr>
+<tr><td></td><td>ZZZZZZZZZZZZZZZZ</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/68/thumbs/1256.gif' alt='New York Yankees'></img></td><td>4</td><td>0</td><td>3</td><td>1</td><td>0</td><td>0.000</td></tr>
+<tr><td></td><td>Dcjuhurd</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/68/thumbs/1256.gif' alt='New York Yankees'></img></td><td>6</td><td>0</td><td>6</td><td>0</td><td>1</td><td>0.000</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="L1">
+            <h2>League 1</h2>
+            <p>Matchups, results and current standing.</p>
+
+            <h3>Division</h3>
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>IGN</th>
+                        <th>Team</th>
+                        <th>Games</th>
+                        <th>Win</th>
+                        <th>Loss</th>
+                        <th>Tie</th>
+                        <th>Runs</th>
+                        <th>%</th>
+                    </tr>
+                </thead>
+                <tbody>
+<tr><td>Dubleezy71</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/69/thumbs/6xk2lpc36146pbg2kydf13e50.gif' alt='Oakland A's'></img></td><td>9</td><td>8</td><td>1</td><td>0</td><td>43</td><td>0.889</td></tr>
+<tr><td>Mrooney7</td><td><img class='peq' src='http://content.sportslogos.net/logos/54/67/thumbs/m01gfgeorgvbfw15fy04alujm.gif' alt='New York Mets'></img></td><td>9</td><td>6</td><td>2</td><td>1</td><td>29</td><td>0.667</td></tr>
+<tr><td>Ruurd</td><td><img class='peq' src='http://content.sportslogos.net/logos/54/50/thumbs/gnnnrbxcmjhdgeu6mavqk3945.gif' alt='Arizona Diamondbacks'></img></td><td>7</td><td>4</td><td>3</td><td>0</td><td>13</td><td>0.571</td></tr>
+<tr><td>SunDevilStang</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/59/thumbs/5989642016.gif' alt='Detroit Tigers'></img></td><td>7</td><td>3</td><td>3</td><td>1</td><td>13</td><td>0.429</td></tr>
+<tr><td>leo7630</td><td><img class='peq' src='http://content.sportslogos.net/logos/54/50/thumbs/gnnnrbxcmjhdgeu6mavqk3945.gif' alt='Arizona Diamondbacks'></img></td><td>10</td><td>2</td><td>8</td><td>0</td><td>5</td><td>0.200</td></tr>
+<tr><td>Dcjuhurd</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/68/thumbs/1256.gif' alt='New York Yankees'></img></td><td>6</td><td>0</td><td>6</td><td>0</td><td>1</td><td>0.000</td></tr>
+                </tbody>
+            </table>
+			<br>
+            <h3>Matchup</h3>
+			
+			<input class="myInput" type="text" id="myInput1" onkeyup="myFunction('myInput1', 'myTable1');" placeholder="Search away team...">
+			<input class="myInput" type="text" id="myInput2" onkeyup="myFunction2('myInput2', 'myTable1');" placeholder="Search home team...">
+			<input class="myInput" type="text" id="myInput3" onkeyup="myFunction3('myInput3', 'myTable1');" placeholder="Search any team...">
+
+            <table id="myTable1" class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>Game</th>
+                        <th>Away Team</th>
+                        <th>Home Team</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+<tr><td>#1</td><td>SunDevilStang<br>AS 13 Scherzer</td><td>Ruurd<br>AS 17 Greinke</td><td></tr>
+<tr><td>#1</td><td>Dubleezy71<br>Star Jun 17 Nelson</td><td>Dcjuhurd<br>AS 15 Greinke</td><td>15-0</tr>
+<tr><td>#1</td><td>leo7630<br>Base 17 Walker</td><td>Mrooney7<br>AS 13 Scherzer</td><td>0-2</tr>
+
+<tr><td>#2</td><td>Dcjuhurd<br>Star May 17 Berrios</td><td>SunDevilStang<br>AS 15 Price</td><td></tr>
+<tr><td>#2</td><td>Mrooney7<br>AS 16 Colon</td><td>Dubleezy71<br>Star Jun 17 Kluber</td><td>7-6</tr>
+<tr><td>#2</td><td>Ruurd<br>AS 13 Corbin</td><td>leo7630<br>POM May 13 Corbin</td><td>2-1</tr>
+
+<tr><td>#3</td><td>SunDevilStang<br>POM Apr 16 Zimmermann</td><td>Dubleezy71<br>POM Jul 14 Gray</td><td>0-1</tr>
+<tr><td>#3</td><td>Ruurd<br>Star Apr 17 Walker</td><td>Mrooney7<br>AS 16 Pomeranz</td><td>2-3</tr>
+<tr><td>#3</td><td>Dcjuhurd<br>POM Jul 14 Gray</td><td>leo7630<br>SB 16 Ray</td><td>0-1</tr>
+
+<tr><td>#4</td><td>leo7630<br>Base 17 Godley</td><td>SunDevilStang<br>POM Jul 16 Verlander</td><td>0-3</tr>
+<tr><td>#4</td><td>Dubleezy71<br>AS 15 Archer</td><td>Ruurd<br>Base 17 Ray</td><td>1-0</tr>
+<tr><td>#4</td><td>Mrooney7<br>Star Apr 17 Stroman</td><td>Dcjuhurd<br>POM Sep 13 Cole</td><td>3-0</tr>
+
+<tr><td>#5</td><td>leo7630<br>SB 16 Greinke</td><td>Dubleezy71<br>Star Apr 17 Triggs</td><td>0-3</tr>
+<tr><td>#5</td><td>Ruurd<br>Base 17 Godley</td><td>Dcjuhurd<br>POM Apr 13 Harvey</td><td>3-0</tr>
+<tr><td>#5</td><td>SunDevilStang<br>POM Sep 16 Porcello</td><td>Mrooney7<br>POM Apr 13 Harvey</td><td>4-5</tr>
+
+<tr><td>#1</td><td>Dubleezy71<br>Star Jun 17 Nelson</td><td>SunDevilStang<br>AS 13 Scherzer</td><td>4-2</tr>
+<tr><td>#1</td><td>Mrooney7<br>AS 13 Scherzer</td><td>Ruurd<br>AS 17 Greinke</td><td>0-1</tr>
+<tr><td>#1</td><td>leo7630<br>Base 17 Walker</td><td>Dcjuhurd<br>AS 15 Greinke</td><td>1-0</tr>
+
+<tr><td>#2</td><td>SunDevilStang<br>AS 15 Price</td><td>leo7630<br>POM May 13 Corbin</td><td>1-0</tr>
+<tr><td>#2</td><td>Ruurd<br>AS 13 Corbin</td><td>Dubleezy71<br>Star Jun 17 Kluber</td><td>1-3</tr>
+<tr><td>#2</td><td>Dcjuhurd<br>Star May 17 Berrios</td><td>Mrooney7<br>AS 16 Colon</td><td></tr>
+
+<tr><td>#3</td><td>Dubleezy71<br>POM Jul 14 Gray</td><td>leo7630<br>SB 16 Ray</td><td>5-2</tr>
+<tr><td>#3</td><td>Dcjuhurd<br>POM Jul 14 Gray</td><td>Ruurd<br>Star Apr 17 Walker</td><td></tr>
+<tr><td>#3</td><td>Mrooney7<br>AS 16 Pomeranz</td><td>SunDevilStang<br>POM Apr 16 Zimmermann</td><td>0-0</tr>
+
+<tr><td>#4</td><td>Ruurd<br>Base 17 Ray</td><td>SunDevilStang<br>POM Jul 16 Verlander</td><td></tr>
+<tr><td>#4</td><td>Dcjuhurd<br>POM Sep 13 Cole</td><td>Dubleezy71<br>AS 15 Archer</td><td></tr>
+<tr><td>#4</td><td>Mrooney7<br>Star Apr 17 Stroman</td><td>leo7630<br>Base 17 Godley</td><td>9-0</tr>
+
+<tr><td>#5</td><td>SunDevilStang<br>POM Sep 16 Porcello</td><td>Dcjuhurd<br>POM Apr 13 Harvey</td><td>3-1</tr>
+<tr><td>#5</td><td>Dubleezy71<br>Star Apr 17 Triggs</td><td>Mrooney7<br>POM Apr 13 Harvey</td><td>5-0</tr>
+<tr><td>#5</td><td>leo7630<br>SB 16 Greinke</td><td>Ruurd<br>Base 17 Godley</td><td>0-4</tr>
+                </tbody>
+            </table>
+
+	</section>
+
+        <section id="L2">
+            <h2>League 2</h2>
+            <p>Matchups, results and current standing.</p>
+
+            <h3>Division</h3>
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>IGN</th>
+                        <th>Team</th>
+                        <th>Games</th>
+                        <th>Win</th>
+                        <th>Loss</th>
+                        <th>Tie</th>
+                        <th>Runs</th>
+                        <th>%</th>
+                    </tr>
+                </thead>
+                <tbody>
+<tr><td>Avanta</td><td><img class='peq' src='http://content.sportslogos.net/logos/54/54/thumbs/q9gvs07u72gc9xr3395u6jh68.gif' alt='Chicago Cubs'></img></td><td>10</td><td>9</td><td>1</td><td>0</td><td>55</td><td>0.900</td></tr>
+<tr><td>AfroAngels</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/6521/thumbs/652143892016.gif' alt='Los Angeles Angels'></img></td><td>10</td><td>8</td><td>1</td><td>1</td><td>52</td><td>0.800</td></tr>
+<tr><td>JKGalyean</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/77/thumbs/ajfeh4oqeealq37er15r3673h.gif' alt='Texas Rangers'></img></td><td>10</td><td>5</td><td>5</td><td>0</td><td>16</td><td>0.500</td></tr>
+<tr><td>Runners23</td><td><img class='peq' src='http://content.sportslogos.net/logos/54/3637/thumbs/363717202017.gif' alt='Miami Marlins'></img></td><td>10</td><td>3</td><td>5</td><td>2</td><td>15</td><td>0.300</td></tr>
+<tr><td>TorontoTulos</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/78/thumbs/2559d7603ouedg7ldhw0br4fn.gif' alt='Toronto Blue Jays'></img></td><td>10</td><td>1</td><td>7</td><td>2</td><td>20</td><td>0.100</td></tr>
+<tr><td>Lycaons31</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/59/thumbs/5989642016.gif' alt='Detroit Tigers'></img></td><td>10</td><td>1</td><td>8</td><td>1</td><td>6</td><td>0.100</td></tr>
+                </tbody>
+            </table>
+			<br>
+            <h3>Matchup</h3>
+
+			<input class="myInput" type="text" id="myInput11" onkeyup="myFunction('myInput11', 'myTable11');" placeholder="Search away team...">
+			<input class="myInput" type="text" id="myInput12" onkeyup="myFunction2('myInput12', 'myTable11');" placeholder="Search home team...">
+			<input class="myInput" type="text" id="myInput13" onkeyup="myFunction3('myInput13', 'myTable11');" placeholder="Search any team...">
+
+            <table id="myTable11" class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>Game</th>
+                        <th>Away Team</th>
+                        <th>Home Team</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+<tr><td>#1</td><td>JKGalyean<br>POM Sep 15 Arrieta</td><td>Lycaons31<br>POM Jun 17 Kluber</td><td>3-0</tr>
+<tr><td>#1</td><td>Avanta<br>POM Sep 15 Arrieta</td><td>Runners23<br>Base 17 Severino</td><td>5-3</tr>
+<tr><td>#1</td><td>TorontoTulos<br>POM Jul 13 Kershaw</td><td>AfroAngels<br>Star Jun 17 Kluber</td><td>0-4</tr>
+
+<tr><td>#2</td><td>Runners23<br>Base 17 Pineda</td><td>JKGalyean<br>Base 17 Darvish</td><td>2-0</tr>
+<tr><td>#2</td><td>AfroAngels<br>Star Apr 17 Keuchel</td><td>Avanta<br>POM Jun 14 Hernandez</td><td>3-7</tr>
+<tr><td>#2</td><td>Lycaons31<br>POM Jul 15 Kershaw</td><td>TorontoTulos<br>POM Sep 14 Kluber</td><td>0-4</tr>
+
+<tr><td>#3</td><td>JKGalyean<br>Base 17 deGrom</td><td>Avanta<br>AS 16 Lester</td><td>1-2</tr>
+<tr><td>#3</td><td>Lycaons31<br>AS 16 Cueto</td><td>AfroAngels<br>POM Aug 14 Shoemaker</td><td>0-14</tr>
+<tr><td>#3</td><td>Runners23<br>Base 17 Gray</td><td>TorontoTulos<br>POM Sep 13 Cole</td><td>1-1</tr>
+
+<tr><td>#4</td><td>TorontoTulos<br>POM May 15 Scherzer</td><td>JKGalyean<br>Base 17 Cashner</td><td>2-3</tr>
+<tr><td>#4</td><td>Avanta<br>Star May 17 Strasburg</td><td>Lycaons31<br>AS 16 Quintana</td><td>8-1</tr>
+<tr><td>#4</td><td>AfroAngels<br>POM Jul 15 Heaney</td><td>Runners23<br>Base 17 Garcia</td><td>5-2</tr>
+
+<tr><td>#5</td><td>TorontoTulos<br>POM May 13 Corbin</td><td>Avanta<br>AS 16 Cueto</td><td>9-19</tr>
+<tr><td>#5</td><td>Lycaons31<br>AS 14 Simon</td><td>Runners23<br>Base 17 Tanaka</td><td>1-1</tr>
+<tr><td>#5</td><td>JKGalyean<br>Base 17 Perez</td><td>AfroAngels<br>AS 17 Scherzer</td><td>1-3</tr>
+
+<tr><td>#1</td><td>Avanta<br>POM Sep 15 Arrieta</td><td>JKGalyean<br>POM Sep 15 Arrieta</td><td>2-1</tr>
+<tr><td>#1</td><td>AfroAngels<br>Star Jun 17 Kluber</td><td>Lycaons31<br>POM Jun 17 Kluber</td><td>8-1</tr>
+<tr><td>#1</td><td>TorontoTulos<br>POM Jul 13 Kershaw</td><td>Runners23<br>Base 17 Severino</td><td>2-3</tr>
+
+<tr><td>#2</td><td>JKGalyean<br>Base 17 Darvish</td><td>TorontoTulos<br>POM Sep 14 Kluber</td><td>3-0</tr>
+<tr><td>#2</td><td>Lycaons31<br>POM Jul 15 Kershaw</td><td>Avanta<br>POM Jun 14 Hernandez</td><td>2-8</tr>
+<tr><td>#2</td><td>Runners23<br>Base 17 Pineda</td><td>AfroAngels<br>Star Apr 17 Keuchel</td><td>1-2</tr>
+
+<tr><td>#3</td><td>Avanta<br>AS 16 Lester</td><td>TorontoTulos<br>POM Sep 13 Cole</td><td>1-0</tr>
+<tr><td>#3</td><td>Runners23<br>Base 17 Gray</td><td>Lycaons31<br>AS 16 Cueto</td><td>1-0</tr>
+<tr><td>#3</td><td>AfroAngels<br>POM Aug 14 Shoemaker</td><td>JKGalyean<br>Base 17 deGrom</td><td>2-1</tr>
+
+<tr><td>#4</td><td>Lycaons31<br>AS 16 Quintana</td><td>JKGalyean<br>Base 17 Cashner</td><td>0-2</tr>
+<tr><td>#4</td><td>Runners23<br>Base 17 Garcia</td><td>Avanta<br>Star May 17 Strasburg</td><td>1-3</tr>
+<tr><td>#4</td><td>AfroAngels<br>POM Jul 15 Heaney</td><td>TorontoTulos<br>POM May 15 Scherzer</td><td>2-2</tr>
+
+<tr><td>#5</td><td>JKGalyean<br>Base 17 Perez</td><td>Runners23<br>Base 17 Tanaka</td><td>1-0</tr>
+<tr><td>#5</td><td>Avanta<br>AS 16 Cueto</td><td>AfroAngels<br>AS 17 Scherzer</td><td>0-9</tr>
+<tr><td>#5</td><td>TorontoTulos<br>POM May 13 Corbin</td><td>Lycaons31<br>AS 14 Simon</td><td>0-1</tr>
+                </tbody>
+            </table>
+
+		</section>
+
+		<section id="L3">
+            <h2>League 3</h2>
+            <p>Matchups, results and current standing.</p>
+
+            <h3>Division</h3>
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>IGN</th>
+                        <th>Team</th>
+                        <th>Games</th>
+                        <th>Win</th>
+                        <th>Loss</th>
+                        <th>Tie</th>
+                        <th>Runs</th>
+                        <th>%</th>
+                    </tr>
+                </thead>
+                <tbody>
+<tr><td>Camrahammers</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/69/thumbs/6xk2lpc36146pbg2kydf13e50.gif' alt='Oakland A's'></img></td><td>10</td><td>8</td><td>0</td><td>2</td><td>40</td><td>0.800</td></tr>
+<tr><td>Harambe</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/59/thumbs/5989642016.gif' alt='Detroit Tigers'></img></td><td>8</td><td>5</td><td>3</td><td>0</td><td>21</td><td>0.625</td></tr>
+<tr><td>Jtginz</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/53/thumbs/c0whfsa9j0vbs079opk2s05lx.gif' alt='Boston Red Sox'></img></td><td>8</td><td>4</td><td>3</td><td>1</td><td>14</td><td>0.500</td></tr>
+<tr><td>RoyalsRule</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/62/thumbs/fmrl2b6xf5hruiike42gn62yu.gif' alt='Kansas City Royals'></img></td><td>10</td><td>3</td><td>4</td><td>3</td><td>12</td><td>0.300</td></tr>
+<tr><td>jaremshewell</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/78/thumbs/2559d7603ouedg7ldhw0br4fn.gif' alt='Toronto Blue Jays'></img></td><td>8</td><td>0</td><td>7</td><td>1</td><td>2</td><td>0.000</td></tr>
+<tr><td>ZZZZZZZZZZZZZZZZ</td><td><img class='peq' src='http://content.sportslogos.net/logos/53/68/thumbs/1256.gif' alt='New York Yankees'></img></td><td>4</td><td>0</td><td>3</td><td>1</td><td>0</td><td>0.000</td></tr>
+                </tbody>
+            </table>
+			<br>
+            <h3>Matchup</h3>
+ 
+			<input class="myInput" type="text" id="myInput21" onkeyup="myFunction('myInput21', 'myTable21');" placeholder="Search away team...">
+			<input class="myInput" type="text" id="myInput22" onkeyup="myFunction2('myInput22', 'myTable21');" placeholder="Search home team...">
+			<input class="myInput" type="text" id="myInput23" onkeyup="myFunction3('myInput23', 'myTable21');" placeholder="Search any team...">
+
+            <table id="myTable21" class="table table-responsive">
+               <thead>
+                    <tr>
+                        <th>Game</th>
+                        <th>Away Team</th>
+                        <th>Home Team</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+<tr><td>#1</td><td>Camrahammers<br>AS 14 Kazmir</td><td>Jtginz<br>Star Jun 17 Kluber</td><td>2-0</tr>
+<tr><td>#1</td><td>ZZZZZZZZZZZZZZZZ<br>Star Jun 17 Kluber</td><td>jaremshewell<br>Star Apr 17 Scherzer</td><td></tr>
+<tr><td>#1</td><td>RoyalsRule<br>Star Apr 17 Vargas</td><td>Harambe<br>AS 15 Keuchel</td><td>0-1</tr>
+
+<tr><td>#2</td><td>jaremshewell<br>AS 13 Sale</td><td>Camrahammers<br>Star Apr 17 Triggs</td><td>1-6</tr>
+<tr><td>#2</td><td>Harambe<br>POM Jun 17 Kluber</td><td>ZZZZZZZZZZZZZZZZ<br>AS 13 Kershaw</td><td></tr>
+<tr><td>#2</td><td>Jtginz<br>AS 15 Keuchel</td><td>RoyalsRule<br>SB 15 Cueto</td><td>3-0</tr>
+
+<tr><td>#3</td><td>Camrahammers<br>POM Jul 14 Gray</td><td>ZZZZZZZZZZZZZZZZ<br>AS 16 Scherzer</td><td>0-0</tr>
+<tr><td>#3</td><td>Jtginz<br>AS 15 Price</td><td>Harambe<br>AS 16 Quintana</td><td>0-1</tr>
+<tr><td>#3</td><td>jaremshewell<br>Star Apr 17 Stroman</td><td>RoyalsRule<br>SB 14 Duffy</td><td>0-5</tr>
+
+<tr><td>#4</td><td>RoyalsRule<br>SB 14 Shields</td><td>Camrahammers<br>SB 14 Lester</td><td>1-1</tr>
+<tr><td>#4</td><td>ZZZZZZZZZZZZZZZZ<br>AS 14 Hernandez</td><td>Jtginz<br>Star May 17 McCullers</td><td></tr>
+<tr><td>#4</td><td>Harambe<br>POM Apr 16 Zimmermann</td><td>jaremshewell<br>AS 13 Hernandez</td><td>7-0</tr>
+
+<tr><td>#5</td><td>RoyalsRule<br>Star Jun 17 Hammels</td><td>ZZZZZZZZZZZZZZZZ<br>AS 15 Price</td><td>5-0</tr>
+<tr><td>#5</td><td>Jtginz<br>AS 16 Scherzer</td><td>jaremshewell<br>Star Jun 17 Quitana</td><td>4-1</tr>
+<tr><td>#5</td><td>Camrahammers<br>SB 14 Samardzija</td><td>Harambe<br>POM Jul 16 Verlander</td><td>1-0</tr>
+
+<tr><td>#1</td><td>ZZZZZZZZZZZZZZZZ<br>Star Jun 17 Kluber</td><td>Camrahammers<br>AS 14 Kazmir</td><td>0-6</tr>
+<tr><td>#1</td><td>Harambe<br>AS 15 Keuchel</td><td>Jtginz<br>Star Jun 17 Kluber</td><td>4-5</tr>
+<tr><td>#1</td><td>RoyalsRule<br>Star Apr 17 Vargas</td><td>jaremshewell<br>Star Apr 17 Scherzer</td><td>0-0</tr>
+
+<tr><td>#2</td><td>Camrahammers<br>Star Apr 17 Triggs</td><td>RoyalsRule<br>SB 15 Cueto</td><td>6-0</tr>
+<tr><td>#2</td><td>Jtginz<br>AS 15 Keuchel</td><td>ZZZZZZZZZZZZZZZZ<br>AS 13 Kershaw</td><td></tr>
+<tr><td>#2</td><td>jaremshewell<br>AS 13 Sale</td><td>Harambe<br>POM Jun 17 Kluber</td><td>0-2</tr>
+
+<tr><td>#3</td><td>ZZZZZZZZZZZZZZZZ<br>AS 16 Scherzer</td><td>RoyalsRule<br>SB 14 Duffy</td><td>0-1</tr>
+<tr><td>#3</td><td>jaremshewell<br>Star Apr 17 Stroman</td><td>Jtginz<br>AS 15 Price</td><td>0-2</tr>
+<tr><td>#3</td><td>Harambe<br>AS 16 Quintana</td><td>Camrahammers<br>POM Jul 14 Gray</td><td>0-2</tr>
+
+<tr><td>#4</td><td>Jtginz<br>Star May 17 McCullers</td><td>Camrahammers<br>SB 14 Lester</td><td>0-1</tr>
+<tr><td>#4</td><td>jaremshewell<br>AS 13 Hernandez</td><td>ZZZZZZZZZZZZZZZZ<br>AS 14 Hernandez</td><td></tr>
+<tr><td>#4</td><td>Harambe<br>POM Apr 16 Zimmermann</td><td>RoyalsRule<br>SB 14 Shields</td><td>6-0</tr>
+
+<tr><td>#5</td><td>Camrahammers<br>SB 14 Samardzija</td><td>jaremshewell<br>Star Jun 17 Quitana</td><td>15-0</tr>
+<tr><td>#5</td><td>ZZZZZZZZZZZZZZZZ<br>AS 15 Price</td><td>Harambe<br>POM Jul 16 Verlander</td><td></tr>
+<tr><td>#5</td><td>RoyalsRule<br>Star Jun 17 Hammels</td><td>Jtginz<br>AS 16 Scherzer</td><td>0-0</tr>
+                </tbody>
+            </table>
+		</section>
+
+				<section id="rules">
+            <h2>Introduction of Rules</h2>
+            <p>We have just some basic rules:</p>
+			<ul>
+				<li>Play PI Live.</li>
+				<li>Have a KIK account: you will need to have KIK and join our KIK group so it is easier to agree a match date.</li>
+				<li>A league will consist out of 6 teams.</li>
+				<li>Playing with the AI is not allowed.</li>
+				<li>Before the league starts you indicate your starting rotation.</li>
+				<li>Rotation cannot be changed during the league but you can replace a starting pitcher with a new one (just in case you buy a new pitcher on the market).</li>
+				<li>Bullpen and batter lineup may vary from game to game and need not to be fixed.</li>
+				<li>Starting Pitchers can only be in SP slots, Relief Pitchers can only be in RP slots and Closing Pitchers can only be in CP slots.</li>
+				<li>In each league we play each other twice, in a home and away game.</li>
+				<li>League games are 4 innings only.</li>
+				<li>Games do not necessarily need to be played in order, but the match ups need to respect the set rotation.</li>
+				<li>When playing 4 innings you cannot substitute your starting pitcher until the 7th inning.</li>
+				<li>A tie is a tie.</li>
+				<li>There is a mercy rule: when a team scores 15 runs, the game is over.</li>
+				<li>When leagues finish we continue with the playoffs, these playoffs consist out of 4 teams.</li>
+				<li>The teams that finish first in each league will classify for the playoffs.</li>
+				<li>The other team that will make the playoffs is decided by a one game only wild-card playoff.</li>
+				<li>The two teams that classify for the wild-card playoff are the ones that finish in 4th and 5th position in the total ranking.</li>
+				<li>If teams finish with the same % the ranking will be decided by (in order): 
+					<ul>
+						<li>Total wins.</li> 
+						<li>Total ties.</li>
+						<li>Total runs.</li>
+					</ul>
+				<li>Leagues will be organized the following way:</li>
+					<ul>
+						<li>Teams will be distributed along the leagues depending on their OVR so the best teams are not all grouped together.</li>
+						<li>Teams will be seeded according to their past results and OVR.</li>
+					</ul>
+				<li>Once in the playoffs we do a best of 3.</li>
+				<li>You can change the rotation again before the playoffs start, but afterwards the rotation is fixed again.</li>
+				<li>The number of innings played in a play off game is agreed upon by the teams, but needs to be either 4 or 9 innings, never 1 inning.</li>
+				<li>When playing 4 innings in the playoffs you cannot substitute your starting pitcher until the 7th inning.</li>
+		</ul>
+		</section>
+
+
+        <footer>
+            <p>&copy; Somebody 2017</p>
+        </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+
+    <!-- Tether -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js" integrity="sha384-ux8v3A6CPtOTqOzMKiuo3d/DomGaaClxFYdCu2HPMBEkf6x2xiDyJ7gkXU0MWwaD" crossorigin="anonymous"></script>
+
+    <!-- Initialize Bootstrap functionality -->
+    <script>
+    // Initialize tooltip component
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+
+    // Initialize popover component
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
+	
+	$('img.uqi').each(function(){
+		$(this).width($(this).width() * 0.50);
+	});
+	$('img.peq').each(function(){
+		$(this).width($(this).width() * 0.25);
+	});
+    </script>    
+
+  </body>
+</html>
