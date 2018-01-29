@@ -1,0 +1,499 @@
+
+ <!DOCTYPE html>
+<!-- Template by Quackit.com -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico">
+
+    <title>KIK Perfect Inning Live League</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
+      
+    <!-- Some extra styles (remove if not needed) -->
+    <style>
+        section {
+            padding: 70px 0;
+            border-bottom: 1px dotted #ccc;
+        }
+
+        /* So that we can see the grid */
+        .grid-example  div[class^="col"] {
+            border: 1px solid white;
+            background: lightblue;
+            text-align: center;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            }
+        /* Overide Jumbotron's color */
+        .jumbotron {
+    background-color: lightskyblue;
+        }
+		
+		
+		.myInput {
+			/*background-image: url('http://www.pacificfunds.com/content/dam/paclife/rsd/mutual_funds/images/website_elements/search-icon.png');*/
+			background-position: 10px 12px; /* Position the search icon */
+			background-repeat: no-repeat; /* Do not repeat the icon image */
+			width: 33%; /* Full-width */
+			font-size: 16px; /* Increase font-size */
+			padding: 12px 20px 12px 40px; /* Add some padding */
+			border: 1px solid #ddd; /* Add a grey border */
+			margin-bottom: 12px; /* Add some space below the input */
+		}
+
+		th, tr:hover {
+			/* Add a grey background color to the table header and on hover */
+			background-color: #f1f1f1;
+		}
+
+	/*
+	 *  Flex Layout Specifics
+	*/
+	main{
+	  display:flex;
+	  flex-direction:row;
+	}
+	.round{
+	  display:flex;
+	  flex-direction:column;
+	  justify-content:center;
+	  width:200px;
+	  list-style:none;
+	  padding:0;
+	}
+	  .round .spacer{ flex-grow:1; }
+	  .round .spacer:first-child,
+	  .round .spacer:last-child{ flex-grow:.5; }
+
+	  .round .game-spacer{
+		flex-grow:1;
+	  }
+
+	li.game{
+	  padding-left:20px;
+	}
+
+	  li.game.winner{
+		font-weight:bold;
+	  }
+	  li.game span{
+		float:right;
+		margin-right:5px;
+	  }
+
+	  li.game-top{ border-bottom:1px solid #aaa; }
+
+	  li.game-spacer{ 
+		border-right:1px solid #aaa;
+		min-height:40px;
+	  }
+
+	  li.game-bottom{ 
+		border-top:1px solid #aaa;
+	  }
+	  
+	  li.game-none { border: none;}
+
+    </style>
+
+	<script>
+		function myFunction(myInput, myTable) {
+		  // Declare variables 
+		  var input, filter, table, tr, td, i;
+		  input = document.getElementById(myInput);
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById(myTable);
+		  tr = table.getElementsByTagName("tr");
+
+		  // Loop through all table rows, and hide those who don't match the search query
+		  for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[1];
+			if (td) {
+			  if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+				tr[i].style.display = "";
+			  } else {
+				tr[i].style.display = "none";
+			  }
+			} 
+		  }
+		}
+
+		function myFunction2(myInput, myTable) {
+		  // Declare variables 
+		  var input, filter, table, tr, td, i;
+		  input = document.getElementById(myInput);
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById(myTable);
+		  tr = table.getElementsByTagName("tr");
+
+		  // Loop through all table rows, and hide those who don't match the search query
+		  for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[2];
+			if (td) {
+			  if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+				tr[i].style.display = "";
+			  } else {
+				tr[i].style.display = "none";
+			  }
+			} 
+		  }
+		}
+
+		function myFunction3(myInput, myTable) {
+		  // Declare variables 
+		  var input, filter, table, tr, td, i;
+		  input = document.getElementById(myInput);
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById(myTable);
+		  tr = table.getElementsByTagName("tr");
+
+		  // Loop through all table rows, and hide those who don't match the search query
+		  for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[1];
+			td2 = tr[i].getElementsByTagName("td")[2];
+			if (td && td2) {
+			  if (td.innerHTML.toUpperCase().indexOf(filter) > -1 || td2.innerHTML.toUpperCase().indexOf(filter) > -1) {
+				tr[i].style.display = "";
+			  } else {
+				tr[i].style.display = "none";
+			  }
+			} 
+		  }
+		}
+
+	</script>
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-269964-1', 'quackit.com');
+  ga('send', 'pageview');
+
+</script>
+</head>
+
+  <body data-spy="scroll" data-target="#navbar-example">
+
+    <nav id="topNav" class="navbar navbar-full navbar-static-top navbar-dark bg-inverse">
+        <div class="container">
+            <button class="navbar-toggler hidden-md-up pull-right" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+                &#9776;
+            </button>
+            <!--a class="navbar-brand" href="#">Logo</a-->
+            <div class="collapse navbar-toggleable-sm" id="collapsingNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#L1">League 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#L2">League 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://eggsandbutter.github.io/index.html">Current league</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://eggsandbutter.github.io/august2017.html">August 2017 League</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://eggsandbutter.github.io/september2017.html">September 2017 League</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--div class="jumbotron jumbotron-fluid" style="padding: 0;">
+      <div class="container">
+        <h1 class="display-3">Join our community league!</h1>
+		<p>To join us, KIK us: vakdd</p>
+        <p>We are not affiliated to Gamevil or MLB or whatsoever.</p>
+        <p>If you do not see any changes on this website then please eliminate cookies and stuff from your browser.</p>
+        <p><a class="btn btn-primary btn-lg" href="http://m.gamevilusa.com/forums/showthread.php?423154-Community-League-Event&p=1168999" role="button">I wanna join!</a></p>
+      </div>
+    </div-->
+	
+    <div class="container">
+        <section id="L1">
+            <h2>League 1</h2>
+            <p>Matchups, results and current standing.</p>
+
+            <h3>Division</h3>
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>IGN</th>
+                        <th>%</th>
+                        <th>Games</th>
+                        <th>Win</th>
+                        <th>Loss</th>
+                        <th>Tie</th>
+                        <th>Runs</th>
+                    </tr>
+                </thead>
+                <tbody>
+<tr><td>Avanta</td><td>1.000</td><td>7</td><td>7</td><td>0</td><td>0</td><td>43</td></tr>
+<tr><td>JKGalyean</td><td>0.900</td><td>10</td><td>9</td><td>1</td><td>0</td><td>55</td></tr>
+<tr><td>Camrahammers</td><td>0.556</td><td>9</td><td>5</td><td>4</td><td>0</td><td>16</td></tr>
+<tr><td>Ruurd</td><td>0.500</td><td>8</td><td>4</td><td>4</td><td>0</td><td>7</td></tr>
+<tr><td>DominicEX</td><td>0.500</td><td>6</td><td>3</td><td>3</td><td>0</td><td>8</td></tr>
+<tr><td>Entersandman7</td><td>0.500</td><td>2</td><td>1</td><td>1</td><td>0</td><td>9</td></tr>
+<tr><td>Mrooney7</td><td>0.333</td><td>3</td><td>1</td><td>2</td><td>0</td><td>3</td></tr>
+<tr><td>Purple3aters</td><td>0.250</td><td>4</td><td>1</td><td>3</td><td>0</td><td>5</td></tr>
+<tr><td>Lycaons31</td><td>0.167</td><td>6</td><td>1</td><td>5</td><td>0</td><td>5</td></tr>
+<tr><td>St0rytim3</td><td>0.167</td><td>6</td><td>1</td><td>5</td><td>0</td><td>5</td></tr>
+<tr><td>bilbosbags</td><td>0.000</td><td>5</td><td>0</td><td>5</td><td>0</td><td>4</td></tr>
+                </tbody>
+            </table>
+			<br>
+            <h3>Matchup</h3>
+			
+			<!--input class="myInput" type="text" id="myInput1" onkeyup="myFunction('myInput1', 'myTable1');" placeholder="Search away team...">
+			<input class="myInput" type="text" id="myInput2" onkeyup="myFunction2('myInput2', 'myTable1');" placeholder="Search home team..."-->
+			<input class="myInput" type="text" id="myInput3" onkeyup="myFunction3('myInput3', 'myTable1');" placeholder="Search any team...">
+
+            <table id="myTable1" class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>Game</th>
+                        <th>Away Team</th>
+                        <th>Home Team</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+<tr><td>#1</td><td>Avanta<br>15 POM Arrieta</td><td>Camrahammers<br>14 AS Kazmir</td><td>6-1</tr>
+<tr><td>#1</td><td>bilbosbags<br>17 AS Martinez</td><td>St0rytim3<br>17 TS Severino</td><td></tr>
+<tr><td>#1</td><td>Entersandman7<br>17 TS Kluber</td><td>Purple3aters<br>11 WAR Shields</td><td></tr>
+<tr><td>#1</td><td>DominicEX<br>13 POM Archer</td><td>Lycaons31<br>17 POM Kluber</td><td>2-1</tr>
+<tr><td>#1</td><td>Ruurd<br>11 WAR Kennedy</td><td>JKGalyean<br>15 POM Arrieta</td><td>0-1</tr>
+
+
+<tr><td>#2</td><td>Avanta<br>14 POM Hernandez</td><td>bilbosbags<br>17 TS Bundy</td><td>3-1</tr>
+<tr><td>#2</td><td>Camrahammers<br>09 WAR Anderson</td><td>St0rytim3<br>17 TS Montgomery</td><td>2-0</tr>
+<tr><td>#2</td><td>Entersandman7<br>16 WAR Cueto</td><td>DominicEX<br>13 POM Cole</td><td></tr>
+<tr><td>#2</td><td>Lycaons31<br>17 TS Verlander</td><td>Purple3aters<br>09 WAR Garza</td><td></tr>
+<tr><td>#2</td><td>JKGalyean<br>16 WAR deGrom</td><td>Mrooney7<br>13 AS Scherzer</td><td>3-0</tr>
+
+
+<tr><td>#3</td><td>St0rytim3<br>17 Base Tanaka</td><td>Avanta<br>16 AS Lester</td><td></tr>
+<tr><td>#3</td><td>Camrahammers<br>14 POM Gray</td><td>Entersandman7<br>14 WAR Arrieta</td><td>2-8</tr>
+<tr><td>#3</td><td>bilbosbags<br>16 WAR Gausman</td><td>Purple3aters<br>13 WAR Price</td><td></tr>
+<tr><td>#3</td><td>DominicEX<br>14 POM deGrom</td><td>Ruurd<br>17 TS Walker</td><td>0-1</tr>
+<tr><td>#3</td><td>Mrooney7<br>15 WAR deGrom</td><td>Lycaons31<br>16 AS Cueto</td><td></tr>
+
+
+<tr><td>#4</td><td>Avanta<br>17 TS Strasburg</td><td>Entersandman7<br>16 WAR deGrom</td><td></tr>
+<tr><td>#4</td><td>Purple3aters<br>14 WAR Archer</td><td>Camrahammers<br>17 TS Triggs</td><td>1-4</tr>
+<tr><td>#4</td><td>bilbosbags<br>14 SB Tillman</td><td>DominicEX<br>16 POM Kluber</td><td></tr>
+<tr><td>#4</td><td>JKGalyean<br>14 AS Hernandez</td><td>St0rytim3<br>17 Base Gray</td><td>8-0</tr>
+<tr><td>#4</td><td>Ruurd<br>17 WAR Greinke</td><td>Mrooney7<br>14 WAR Iwakuma</td><td>1-3</tr>
+
+
+<tr><td>#5</td><td>Purple3aters<br>17 TS Faria</td><td>Avanta<br>16 AS Cueto</td><td>0-5</tr>
+<tr><td>#5</td><td>Lycaons31<br>15 POM Kershaw</td><td>Camrahammers<br>11 WAR McCarthy</td><td>0-1</tr>
+<tr><td>#5</td><td>JKGalyean<br>16 AS Scherzer</td><td>bilbosbags<br>15 WAR Chen</td><td>3-1</tr>
+<tr><td>#5</td><td>Ruurd<br>17 WAR Godley</td><td>St0rytim3<br>17 Base Sabathia</td><td>2-1</tr>
+<tr><td>#5</td><td>Mrooney7<br>15 AS Kershaw</td><td>Entersandman7<br>15 WAR Strasburg</td><td></tr>
+
+
+<tr><td>#6</td><td>DominicEX<br>16 POM Matz</td><td>Avanta<br>15 POM Arrieta</td><td>1-10</tr>
+<tr><td>#6</td><td>Camrahammers<br>14 AS Kazmir</td><td>JKGalyean<br>16 AS Hamels</td><td>0-7</tr>
+<tr><td>#6</td><td>bilbosbags<br>17 AS Martinez</td><td>Ruurd<br>17 WAR Ray</td><td>0-1</tr>
+<tr><td>#6</td><td>St0rytim3<br>17 TS Severino</td><td>Mrooney7<br>15 AS Price</td><td></tr>
+<tr><td>#6</td><td>Entersandman7<br>17 TS Kluber</td><td>Lycaons31<br>14 AS Simon</td><td></tr>
+
+
+<tr><td>#7</td><td>Lycaons31<br>17 POM Kluber</td><td>Avanta<br>14 POM Hernandez</td><td></tr>
+<tr><td>#7</td><td>Ruurd<br>11 WAR Kennedy</td><td>Camrahammers<br>09 WAR Anderson</td><td>0-1</tr>
+<tr><td>#7</td><td>Mrooney7<br>13 AS Scherzer</td><td>bilbosbags<br>17 TS Bundy</td><td></tr>
+<tr><td>#7</td><td>St0rytim3<br>17 TS Montgomery</td><td>Purple3aters<br>11 WAR Shields</td><td>1-4</tr>
+<tr><td>#7</td><td>JKGalyean<br>15 POM Arrieta</td><td>DominicEX<br>13 POM Archer</td><td>9-0</tr>
+
+
+<tr><td>#8</td><td>Avanta<br>16 AS Lester</td><td>JKGalyean<br>16 WAR deGrom</td><td>3-0</tr>
+<tr><td>#8</td><td>Camrahammers<br>14 POM Gray</td><td>Mrooney7<br>15 WAR deGrom</td><td></tr>
+<tr><td>#8</td><td>bilbosbags<br>16 WAR Gausman</td><td>Entersandman7<br>16 WAR Cueto</td><td></tr>
+<tr><td>#8</td><td>Purple3aters<br>09 WAR Garza</td><td>DominicEX<br>13 POM Cole</td><td></tr>
+<tr><td>#8</td><td>Lycaons31<br>17 TS Verlander</td><td>Ruurd<br>17 TS Walker</td><td>1-2</tr>
+
+
+<tr><td>#9</td><td>Avanta<br>17 TS Strasburg</td><td>Ruurd<br>17 WAR Greinke</td><td>4-0</tr>
+<tr><td>#9</td><td>DominicEX<br>14 POM deGrom</td><td>Camrahammers<br>17 TS Triggs</td><td>2-0</tr>
+<tr><td>#9</td><td>St0rytim3<br>17 Base Tanaka</td><td>Lycaons31<br>16 AS Cueto</td><td>3-0</tr>
+<tr><td>#9</td><td>Entersandman7<br>14 WAR Arrieta</td><td>JKGalyean<br>14 AS Hernandez</td><td>1-7</tr>
+<tr><td>#9</td><td>Mrooney7<br>14 WAR Iwakuma</td><td>Purple3aters<br>13 WAR Price</td><td></tr>
+
+
+<tr><td>#10</td><td>Mrooney7<br>15 AS Kershaw</td><td>Avanta<br>16 AS Cueto</td><td>0-12</tr>
+<tr><td>#10</td><td>Lycaons31<br>15 POM Kershaw</td><td>bilbosbags<br>15 WAR Chen</td><td>3-1</tr>
+<tr><td>#10</td><td>St0rytim3<br>17 Base Gray</td><td>DominicEX<br>16 POM Kluber</td><td>0-3</tr>
+<tr><td>#10</td><td>Ruurd<br>17 WAR Godley</td><td>Entersandman7<br>16 WAR deGrom</td><td></tr>
+<tr><td>#10</td><td>Purple3aters<br>14 WAR Archer</td><td>JKGalyean<br>16 AS Scherzer</td><td>0-4</tr>
+
+
+<tr><td>#11</td><td>Camrahammers<br>11 WAR McCarthy</td><td>bilbosbags<br>14 SB Tillman</td><td>5-1</tr>
+<tr><td>#11</td><td>Entersandman7<br>15 WAR Strasburg</td><td>St0rytim3<br>17 Base Sabathia</td><td></tr>
+<tr><td>#11</td><td>Purple3aters<br>17 TS Faria</td><td>Ruurd<br>17 WAR Ray</td><td></tr>
+<tr><td>#11</td><td>JKGalyean<br>16 AS Hamels</td><td>Lycaons31<br>14 AS Simon</td><td>13-0</tr>
+<tr><td>#11</td><td>DominicEX<br>16 POM Matz</td><td>Mrooney7<br>15 AS Price</td><td></tr>
+                </tbody>
+            </table>
+
+	</section>
+
+        <section id="L2">
+            <h2>League 2</h2>
+            <p>Matchups, results and current standing.</p>
+
+            <h3>Division</h3>
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>IGN</th>
+                        <th>%</th>
+                        <th>Games</th>
+                        <th>Win</th>
+                        <th>Loss</th>
+                        <th>Tie</th>
+                        <th>Runs</th>
+                    </tr>
+                </thead>
+                <tbody>
+<tr><td>Bruhmatic</td><td>0.750</td><td>8</td><td>6</td><td>1</td><td>1</td><td>32</td></tr>
+<tr><td>Bomberrr</td><td>0.714</td><td>7</td><td>5</td><td>2</td><td>0</td><td>16</td></tr>
+<tr><td>AfroAngels</td><td>0.667</td><td>6</td><td>4</td><td>2</td><td>0</td><td>36</td></tr>
+<tr><td>Dubleezy71</td><td>0.625</td><td>8</td><td>5</td><td>2</td><td>1</td><td>30</td></tr>
+<tr><td>FerdinandF261</td><td>0.500</td><td>6</td><td>3</td><td>2</td><td>1</td><td>22</td></tr>
+<tr><td>RoyalsRule</td><td>0.444</td><td>9</td><td>4</td><td>5</td><td>0</td><td>24</td></tr>
+<tr><td>SunDevilStang</td><td>0.400</td><td>5</td><td>2</td><td>3</td><td>0</td><td>26</td></tr>
+<tr><td>CHOKENASTY</td><td>0.000</td><td>5</td><td>0</td><td>5</td><td>0</td><td>1</td></tr>
+<tr><td>Joesil</td><td>0.000</td><td>6</td><td>0</td><td>5</td><td>1</td><td>5</td></tr>
+<tr><td>Username</td><td>0.000</td><td>2</td><td>0</td><td>2</td><td>0</td><td>4</td></tr>
+                </tbody>
+            </table>
+			<br>
+            <h3>Matchup</h3>
+
+			<!--input class="myInput" type="text" id="myInput11" onkeyup="myFunction('myInput11', 'myTable11');" placeholder="Search away team...">
+			<input class="myInput" type="text" id="myInput12" onkeyup="myFunction2('myInput12', 'myTable11');" placeholder="Search home team..."-->
+			<input class="myInput" type="text" id="myInput13" onkeyup="myFunction3('myInput13', 'myTable11');" placeholder="Search any team...">
+
+            <table id="myTable11" class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>Game</th>
+                        <th>Away Team</th>
+                        <th>Home Team</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+<tr><td>#1</td><td>FerdinandF261<br>17 POM Arrieta</td><td>Username<br>17 POM Kluber</td><td></tr>
+<tr><td>#1</td><td>Dubleezy71<br>11 WAR Gonzalez</td><td>AfroAngels<br>10 WAR Weaver</td><td>2-0</tr>
+<tr><td>#1</td><td>RoyalsRule<br>17 TS Hammel</td><td>Joesil<br>17 TS Wood</td><td>6-0</tr>
+<tr><td>#1</td><td>Bomberrr<br>13 WAR Iwakuma</td><td>SunDevilStang<br>13 AS Scherzer</td><td>2-1</tr>
+<tr><td>#1</td><td>CHOKENASTY<br>14 WAR Arrieta</td><td>Bruhmatic<br>17 Base Archer</td><td>1-12</tr>
+
+<tr><td>#2</td><td>Username<br>15 AS Kershaw</td><td>AfroAngels<br>16 WAR Shoemaker</td><td>3-13</tr>
+<tr><td>#2</td><td>FerdinandF261<br>17 TS Hendricks</td><td>RoyalsRule<br>13 WAR Shields</td><td>2-0</tr>
+<tr><td>#2</td><td>Bomberrr<br>09 WAR Lackey</td><td>Dubleezy71<br>09 WAR Anderson</td><td>3-1</tr>
+<tr><td>#2</td><td>CHOKENASTY<br>15 WAR Kluber</td><td>Joesil<br>17 TS Kluber</td><td></tr>
+<tr><td>#2</td><td>Bruhmatic<br>17 Base Cobb</td><td>SunDevilStang<br>15 AS Price</td><td>8-1</tr>
+
+<tr><td>#3</td><td>RoyalsRule<br>17 TS Vargas</td><td>Username<br>17 TS McCullers</td><td>4-1</tr>
+<tr><td>#3</td><td>AfroAngels<br>12 WAR Greinke</td><td>Bomberrr<br>12 WAR Zimmermann</td><td></tr>
+<tr><td>#3</td><td>FerdinandF261<br>17 POM Scherzer</td><td>CHOKENASTY<br>14 WAR Tanaka</td><td></tr>
+<tr><td>#3</td><td>Bruhmatic<br>17 Base Odorizzi</td><td>Dubleezy71<br>17 TS Kluber</td><td>0-0</tr>
+<tr><td>#3</td><td>SunDevilStang<br>09 WAR Jackson</td><td>Joesil<br>17 WAR Ray</td><td></tr>
+
+<tr><td>#4</td><td>Username<br>09 WAR De La Rosa</td><td>Bomberrr<br>14 WAR Stroman</td><td></tr>
+<tr><td>#4</td><td>CHOKENASTY<br>11 WAR Hernandez</td><td>RoyalsRule<br>15 WAR Cueto</td><td>0-3</tr>
+<tr><td>#4</td><td>AfroAngels<br>14 WAR Richards</td><td>Bruhmatic<br>17 Base Snell</td><td>9-2</tr>
+<tr><td>#4</td><td>FerdinandF261<br>17 TS Quintana</td><td>SunDevilStang<br>16 POM Zimmermann</td><td></tr>
+<tr><td>#4</td><td>Joesil<br>17 TS Nelson</td><td>Dubleezy71<br>17 TS Nelson</td><td>1-4</tr>
+
+<tr><td>#5</td><td>Username<br>11 WAR Pineda</td><td>CHOKENASTY<br>09 WAR Lackey</td><td></tr>
+<tr><td>#5</td><td>Bomberrr<br>11 WAR Gonzalez</td><td>Bruhmatic<br>17 TS Faria</td><td>1-2</tr>
+<tr><td>#5</td><td>SunDevilStang<br>16 POM Verlander</td><td>RoyalsRule<br>09 AS Greinke</td><td>9-1</tr>
+<tr><td>#5</td><td>Joesil<br>17 TS Anderson</td><td>AfroAngels<br>09 WAR Lackey</td><td>3-4</tr>
+<tr><td>#5</td><td>Dubleezy71<br>14 POM Gray</td><td>FerdinandF261<br>17 TS Walker</td><td>2-3</tr>
+
+<tr><td>#6</td><td>Bruhmatic<br>17 Base Archer</td><td>Username<br>17 POM Kluber</td><td></tr>
+<tr><td>#6</td><td>SunDevilStang<br>13 AS Scherzer</td><td>CHOKENASTY<br>14 WAR Arrieta</td><td>15-0</tr>
+<tr><td>#6</td><td>Bomberrr<br>13 WAR Iwakuma</td><td>Joesil<br>17 TS Wood</td><td>2-0</tr>
+<tr><td>#6</td><td>RoyalsRule<br>17 TS Hammel</td><td>Dubleezy71<br>11 WAR Gonzalez</td><td>4-5</tr>
+<tr><td>#6</td><td>AfroAngels<br>10 WAR Weaver</td><td>FerdinandF261<br>17 POM Arrieta</td><td>6-9</tr>
+
+<tr><td>#7</td><td>Username<br>15 AS Kershaw</td><td>SunDevilStang<br>15 AS Price</td><td></tr>
+<tr><td>#7</td><td>Joesil<br>17 TS Kluber</td><td>Bruhmatic<br>17 Base Cobb</td><td>0-3</tr>
+<tr><td>#7</td><td>Dubleezy71<br>09 WAR Anderson</td><td>CHOKENASTY<br>15 WAR Kluber</td><td>15-0</tr>
+<tr><td>#7</td><td>Bomberrr<br>09 WAR Lackey</td><td>FerdinandF261<br>17 TS Hendricks</td><td>6-5</tr>
+<tr><td>#7</td><td>AfroAngels<br>16 WAR Shoemaker</td><td>RoyalsRule<br>13 WAR Shields</td><td>4-2</tr>
+
+<tr><td>#8</td><td>Username<br>17 TS McCullers</td><td>Joesil<br>17 WAR Ray</td><td></tr>
+<tr><td>#8</td><td>Dubleezy71<br>17 TS Kluber</td><td>SunDevilStang<br>09 WAR Jackson</td><td>1-0</tr>
+<tr><td>#8</td><td>Bruhmatic<br>17 Base Odorizzi</td><td>FerdinandF261<br>17 POM Scherzer</td><td>3-2</tr>
+<tr><td>#8</td><td>CHOKENASTY<br>14 WAR Tanaka</td><td>AfroAngels<br>12 WAR Greinke</td><td></tr>
+<tr><td>#8</td><td>RoyalsRule<br>17 TS Vargas</td><td>Bomberrr<br>12 WAR Zimmermann</td><td>3-1</tr>
+
+<tr><td>#9</td><td>Dubleezy71<br>17 TS Nelson</td><td>Username<br>09 WAR De La Rosa</td><td></tr>
+<tr><td>#9</td><td>Joesil<br>17 TS Nelson</td><td>FerdinandF261<br>17 TS Quintana</td><td>1-1</tr>
+<tr><td>#9</td><td>SunDevilStang<br>16 POM Zimmermann</td><td>AfroAngels<br>14 WAR Richards</td><td></tr>
+<tr><td>#9</td><td>RoyalsRule<br>15 WAR Cueto</td><td>Bruhmatic<br>17 Base Snell</td><td>1-2</tr>
+<tr><td>#9</td><td>CHOKENASTY<br>11 WAR Hernandez</td><td>Bomberrr<br>14 WAR Stroman</td><td>0-1</tr>
+                </tbody>
+            </table>
+
+		</section>
+
+        <footer>
+            <p>&copy; Somebody 2017</p>
+        </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+
+    <!-- Tether -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js" integrity="sha384-ux8v3A6CPtOTqOzMKiuo3d/DomGaaClxFYdCu2HPMBEkf6x2xiDyJ7gkXU0MWwaD" crossorigin="anonymous"></script>
+
+    <!-- Initialize Bootstrap functionality -->
+    <script>
+    // Initialize tooltip component
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+
+    // Initialize popover component
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
+	
+	$('img.uqi').each(function(){
+		$(this).width($(this).width() * 0.50);
+	});
+	$('img.peq').each(function(){
+		$(this).width($(this).width() * 0.25);
+	});
+    </script>    
+
+  </body>
+</html>
